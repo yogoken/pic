@@ -1,1 +1,10 @@
 .container
+  .container__contents-container
+    .container__contents-container__contents-area
+      .container__contents-container__contents-area__letter-image
+        = link_to @letter.url, target: '_blank' do
+          = image_tag @letter.image.presence || 'yogoken.png', class: 'container__contents-container__contents-area__letter-image__thumbnail'
+      .container__contents-container__contents-area__letter-title
+        = link_to @letter.title.truncate(40).presence || "NO TITLE", @letter.url, class: "container__contents-container__contents-area__letter-title__font", target: "_blank"
+      .container__contents-container__contents-area__read-more
+        = link_to "続きを読む", @letter.url, class: "container__contents-container__contents-area__read-more__btn", target: "_blank"
