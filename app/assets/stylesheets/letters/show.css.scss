@@ -1,0 +1,43 @@
+.container {
+  &__contents-container {
+    margin-left: 200px;
+    padding: 42px 28px 0;
+    &__contents-area {
+      width: 550px;
+      margin: 23px auto 0;
+      background-color: #FFF;
+      &__letter-image {
+        height: 250px;
+        &__thumbnail {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &__letter-title {
+        padding: 20px 20px 0;
+        &__font {
+          color: black;
+          line-height: 34px;
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
+      &__read-more {
+        padding: 0 20px 20px;
+        &__btn {
+          display: block;
+          padding: 10px 0;
+          text-align: center;
+          font-size: 14px;
+          color: #37509C;
+          border: 1px solid #37509C;
+          border-radius: 2px;
+          &:hover {
+            background-color: #15274D;
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}
