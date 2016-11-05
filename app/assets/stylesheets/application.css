@@ -1,13 +1,6 @@
 @import './reset';
 
-@import './mixin/clearfix';
-
-@import './config/color';
-@import './config/font';
-
 @import './common/header';
-@import './common/footer';
 
-@import './letters/index';
 @import './letters/new';
-@import './letters/show';
+
