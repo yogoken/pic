@@ -1,0 +1,49 @@
+.modal {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  background-color: rgba(21,39,77,0.9);
+  &__back {
+    z-index: 10001;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &__pick-form {
+    z-index: 10002;
+    position: fixed;
+    top: 5%;
+    left: 25%;
+    width: 600px;
+    background-color: #FFF;
+    margin: 100px auto 0;
+    border: solid 1px #15274D;
+    border-radius: 5px;
+    &__message {
+      margin: 40px 0 20px;
+      text-align: center;
+      color: #222;
+      font-size: 20px;
+      line-height: 28px;
+    }
+    &__url-group {
+      margin: 0 40px;
+      &__url-value {
+        margin-bottom: 40px;
+        padding-left: 10px;
+        width: 100%;
+        height: 40px;
+        border: 1px solid #D9D9D9;
+        border-radius: 2px;
+        font-family: inherit;
+        font-size: 15px;
+      }
+    }
+  }
+}
