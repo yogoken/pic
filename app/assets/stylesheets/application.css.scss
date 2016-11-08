@@ -1,7 +1,12 @@
 @import './reset';
 
+@import './mixin/clearfix';
+
 @import './common/header';
+
+@import './devise/regist_login';
 
 @import './letters/new';
 @import './letters/show';
 
+@import './users/show';
