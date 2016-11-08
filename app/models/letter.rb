@@ -1,6 +1,5 @@
 class Letter < ApplicationRecord
   validates :url, format: URI::regexp(%w(http https))
-
   def create_letter
     agent = Mechanize.new
     page = agent.get(self.url)
