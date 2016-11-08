@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @letters = Letter.all
+    @letters = @user.user_letters
   end
 
   private
