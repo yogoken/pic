@@ -3,6 +3,9 @@ class LettersController < ApplicationController
     @letters = Letter.order('created_at desc')
   end
 
+  def new
+  end
+
   def create
     letter = Letter.new(url_params)
     if letter.save

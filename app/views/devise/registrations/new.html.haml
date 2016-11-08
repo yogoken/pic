@@ -1,0 +1,15 @@
+.container
+  .container__regist-form
+    %h2.container__regist-form__title
+      新規登録
+    .container__regist-form__login-message
+      すでにアカウントをお持ちの方は
+      = link_to 'こちら', new_user_session_path, class: 'container__regist-form__login-message__link'
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .container__regist-form__form-group
+        = f.email_field :email, autofocus: true, placeholder: "登録するメールアドレス", class: "container__regist-form__form-group__field"
+      .container__regist-form__form-group
+        = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "container__regist-form__form-group__field"
+      .container__regist-form__actions
+        = f.submit "無料でアカウントを登録する", class: "container__regist-form__actions__submit-btn"
