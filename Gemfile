@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 group :development do
@@ -31,3 +33,5 @@ gem 'mechanize'
 gem 'pry-rails'
 gem 'rb-readline'
 gem 'devise'
+gem 'awesome_print'
+gem 'dotenv-rails'
