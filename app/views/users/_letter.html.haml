@@ -1,0 +1,4 @@
+.user-container__letter-container__individual-letter
+  .user-container__letter-container__individual-letter__thumbnail
+    = link_to letter_path(letter) do
+      = image_tag letter.image.presence || "default_letter_image.jpg", class: "user-container__letter-container__individual-letter__thumbnail__image"

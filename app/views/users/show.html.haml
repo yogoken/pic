@@ -1,0 +1,5 @@
+.user-container
+  = render 'users/user_info'
+  = render 'users/navbar'
+  .user-container__letter-container
+    = render partial: 'letter', collection: @letters, locals: { user: @user }
