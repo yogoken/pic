@@ -14,7 +14,7 @@
 
   .container__letter-container__letter-block__individual-letter__pickers
     - if letter.comments.length > 0
-      - letter.best_five_comments.each do |comment|
+      - letter.best_seven_comments.each do |comment|
         = link_to user_path(comment.user) do
           = image_tag comment.user.avatar.presence || "image.jpeg", class: "container__letter-container__letter-block__individual-letter__pickers__individual-picker"
 

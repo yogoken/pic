@@ -30,8 +30,8 @@ class Letter < ApplicationRecord
     end
   end
 
-  def best_five_comments
-    comments.first(5)
+  def best_seven_comments
+    comments.first(7)
   end
 
   def create_letter
