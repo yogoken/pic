@@ -23,6 +23,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'xray-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -35,3 +36,4 @@ gem 'rb-readline'
 gem 'devise'
 gem 'awesome_print'
 gem 'dotenv-rails'
+gem 'carrierwave'
