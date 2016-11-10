@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108125252) do
+ActiveRecord::Schema.define(version: 20161110114508) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20161108125252) do
     t.string   "title"
     t.string   "image"
     t.string   "url"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "comments_count"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "comments_count", default: 0
     t.string   "site_name"
   end
 
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20161108125252) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "nickname"
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
