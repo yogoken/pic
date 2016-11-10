@@ -1,0 +1,23 @@
+.container
+  .container__setting
+    .container__setting__container
+      .container__setting__container__title
+        アカウント設定
+      = form_for(current_user) do |f|
+        .container__setting__container__avatar
+          .container__setting__container__avatar__label
+            アイコン
+          .container__setting__container__avatar__cover
+            = image_tag current_user.avatar, id: "user-avatar", class: "container__setting__container__avatar__cover__image", id: "avatar_image"
+            = f.file_field :avatar, class: "container__setting__container__avatar__cover__field", id: "avatar_file"
+            = link_to "変更する", "", class: "container__setting__container__avatar__cover__btn"
+        .container__setting__container__name
+          .container__setting__container__name__label
+            ニックネーム
+          .container__setting__container__name__field
+            = f.text_field :nickname, class: "container__setting__container__name__field__last"
+        .container__setting__container__edit
+          = f.submit "保存する", class: "container__setting__container__edit__btn"
+        .container__setting__container__delete
+          = link_to "退会する", user_path, method: :delete, class: "container__setting__container__delete__btn"
+
