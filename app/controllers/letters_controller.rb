@@ -21,6 +21,7 @@ class LettersController < ApplicationController
   def show
     @letter = Letter.find(params[:id])
     @comment = Comment.new
+    @comments = @letter.comments
   end
 
   private
