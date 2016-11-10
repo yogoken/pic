@@ -8,8 +8,12 @@
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       .container__regist-form__form-group
-        = f.email_field :email, autofocus: true, placeholder: "登録するメールアドレス", class: "container__regist-form__form-group__field"
+        = f.email_field :email, autofocus: true, placeholder: 'email address', class: 'container__regist-form__form-group__field'
       .container__regist-form__form-group
-        = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "container__regist-form__form-group__field"
+        = f.password_field :password, autocomplete: 'new-password', placeholder: 'password', class: 'container__regist-form__form-group__field'
+      .container__regist-form__form-group
+        = f.text_field :nickname, placeholder: 'nickname', class: 'container__regist-form__form-group__field'
+      .container__regist-form__form-group
+        = f.file_field :avatar, class: 'container__regist-form__form-group__field', id: 'avatar_file'
       .container__regist-form__actions
-        = f.submit "無料でアカウントを登録する", class: "container__regist-form__actions__submit-btn"
+        = f.submit '無料でアカウントを登録する', class: 'container__regist-form__actions__submit-btn'
