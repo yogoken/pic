@@ -1,0 +1,37 @@
+.notice {
+  display: none;
+  position: absolute;
+  padding: 15px 10px;
+  top: 50px;
+  right: 0px;
+  z-index: 10000;
+  background-color: rgba(256, 0, 0, 0.6);
+  border-radius: 3px;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.alert {
+  display: none;
+  position: absolute;
+  padding: 15px 10px;
+  top: 50px;
+  right: 0px;
+  z-index: 10000;
+  background-color: rgba(256, 0, 0, 0.6);
+  border-radius: 3px;
+  font-weight: bold;
+  color: #FFF;
+}
+
+#logo {
+  display: none;
+  width: 32%;
+  height: 40%;
+  z-index: 10000;
+  opacity: 1;
+  position: fixed;
+  top: 30%;
+  left: 42%;
+}
+

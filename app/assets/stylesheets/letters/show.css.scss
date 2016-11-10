@@ -1,4 +1,25 @@
 .container {
+  &__cover {
+    position: fixed;
+    margin-left: 200px;
+    width: 100%;
+    z-index: 1000;
+    &__letter-title-box {
+      background-color: #FFF;
+      opacity: 0.88;
+      border-bottom: 1px solid #EAEAEA;
+      padding: 0 28px;
+      &__title {
+        display: block;
+        margin: 0 auto;
+        padding: 16px 0 14px;
+        width: 750px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #37509C;
+      }
+    }
+  }
   &__contents-container {
     margin-left: 200px;
     padding: 42px 28px 0;
@@ -12,6 +33,32 @@
           width: 100%;
           height: 100%;
         }
+        &__picks-box {
+          position: relative;
+          bottom: 230px;
+          left: 469px;
+          padding: 7px 0;
+          text-align: center;
+          width: 80px;
+          background-color: rgba(45, 45, 45, 0.5);
+          border: 1px solid #FFFFFF;
+          &__cover {
+            display: inline;
+            &__size {
+              display: inline;
+              font-size: 18px;
+              font-family: Helvetica;
+              color: #FFFFFF;
+            }
+            &__picks {
+              display: inline;
+              line-height: 18px;
+              font-family: Helvetica;
+              font-size: 7px;
+              color: #FFFFFF;
+            }
+          }
+        }
       }
       &__letter-title {
         padding: 20px 20px 0;
@@ -20,6 +67,53 @@
           line-height: 34px;
           font-size: 24px;
           font-weight: bold;
+        }
+      }
+      &__meta {
+        @include clearfix();
+        &__site-name {
+          float: left;
+          padding: 20px 0 20px 20px;
+          font-size: 12px;
+          color: #999;
+        }
+        &__time-ago {
+          float: left;
+          padding: 20px 0 20px 40px;
+          font-size: 12px;
+          color: #999;
+        }
+        &__storage {
+          float: right;
+          padding: 7px 20px 7px 0;
+          &__normal-btn {
+            padding: 7.5px 15px;
+            background-color: #FFF;
+            border-radius: 2px;
+            font-size: 14px;
+            color: #37509C;
+            border: 1px solid #37509C;
+            &:hover {
+              background-color: #15274D;
+              color: #FFF;
+              cursor: pointer;
+            }
+          }
+          &__red-btn {
+            display: block;
+            padding: 11px 22px;
+            background-color: #FFF;
+            border-radius: 2px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #F76666;
+            border: 1px solid #F76666;
+            &:hover {
+              background-color: #F76666;
+              color: #FFF;
+              cursor: pointer;
+            }
+          }
         }
       }
       &__read-more {
@@ -35,6 +129,140 @@
           &:hover {
             background-color: #15274D;
             color: #FFF;
+          }
+        }
+      }
+    }
+    &__news-comment {
+      width: 550px;
+      margin: 10px auto 0;
+      background-color: #FFF;
+      &__pick-editor {
+        @include clearfix();
+        border-bottom: 1px solid #EAEAEA;
+        &__cover {
+          float: left;
+          padding: 16px 24px;
+          &__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+          }
+        }
+        &__comment {
+          float: left;
+          padding: 16px 30px 16px 0;
+          &__form {
+            resize: none;
+            overflow: auto;
+            padding: 10px 0 0 10px;
+            width: 300px;
+            font-size: 15px;
+            border: 1px solid #EAEAEA;
+            border-radius: 2px;
+          }
+        }
+        &__pick {
+          float: right;
+          padding: 18px 25px 0 0;
+          &__btn {
+            padding: 10px 25px;
+            background-color: #27375c;
+            border: 1px solid #27375c;
+            border-radius: 2px;
+            font-size: 14px;
+            color: #FFF;
+            cursor: pointer;
+          }
+        }
+      }
+      &__comments {
+        &__individual {
+          border-bottom: 1px solid #EAEAEA;
+          margin: 0 24px;
+          padding: 16px 0;
+          &__user {
+            @include clearfix();
+            &__cover {
+              float: left;
+              &__avatar {
+                width: 40px;
+                height: 40px;
+              }
+            }
+            &__info {
+              float: left;
+              margin-left: 16px;
+              &__name {
+                margin-top: 5px;
+                &__font {
+                  color: #15274D;
+                  font-size: 16px;
+                  font-weight: bold;
+                }
+              }
+              &__created-at {
+                margin-top: 5px;
+                color: #999;
+                font-size: 12px;
+              }
+              &__destroy {
+                padding: 5px 10px;
+                font-size: 14px;
+                color: black;
+                position: relative;
+                bottom: 20px;
+                left: 400px;
+                border-radius: 2px;
+                box-shadow: 0 0 4px #CCC;
+              }
+            }
+          }
+          &__comment {
+            position: relative;
+            min-height: 48px;
+            margin: 8px 0;
+            &__content {
+              display: block;
+              width: 300px;
+              padding-left: 56px;
+              line-height: 25px;
+              font-size: 14px;
+              color: #222;
+            }
+            &__like-container {
+              position: absolute;
+              width: 34px;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              text-align: center;
+              &__like-panel {
+                display: table;
+                width: 100%;
+                height: 100%;
+                &__like-link {
+                  vertical-align: middle;
+                  display: table-cell;
+                  &__likes-count {
+                    color: #B1B1B3;
+                    font-size: 10px;
+                  }
+                  &__likes {
+                    color: #B1B1B3;
+                    font-size: 10px;
+                  }
+                  &__likes-count-red {
+                    color: red;
+                    font-size: 10px;
+                  }
+                  &__likes-red {
+                    color: red;
+                    font-size: 10px;
+                  }
+                }
+              }
+            }
           }
         }
       }
