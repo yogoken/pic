@@ -1,11 +1,11 @@
 .header
   .header__title
     %h1
-      = link_to 'What does the fox say', root_path, class: 'header__title__font'
+      = link_to 'Pic', root_path, class: 'header__title__font'
   .header__nav
     - if user_signed_in?
       .header__nav__user#user-header-image
-        = image_tag "yogoken.png", class: 'header__nav__user'
+        = image_tag current_user.avatar, class: 'header__nav__user'
       = image_tag "pen.png", class: 'header__nav__new-letter', id: "letter-new"
       = render partial: 'letters/new_modal'
     - else
@@ -19,6 +19,6 @@
     .user__back#user-back-close
       .user__back__user-menu#user-menu-container
         .user__back__user-menu__user-name
-          = link_to current_user.nickname.presence || 'zerO', user_path(current_user), class: 'user__back__user-menu__user-name__font'
+          = link_to current_user.nickname.presence || 'No name', edit_user_path(current_user), class: 'user__back__user-menu__user-name__font'
         .user__back__user-menu__logout
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user__back__user-menu__logout__font'

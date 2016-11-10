@@ -8,4 +8,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render partial: 'layouts/header'
+    - flash.each do |type, msg|
+      - if type == 'notice' && msg.blank?
+        = image_tag 'logo.png', id: 'logo'
+      - else
+        %div{ class: "#{type}", id: 'flash' }
+          = msg
     = yield
