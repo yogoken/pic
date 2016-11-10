@@ -16,7 +16,8 @@
     - if letter.comments.length > 0
       - letter.best_five_comments.each do |comment|
         = link_to user_path(comment.user) do
-          = image_tag comment.user.avatar.presence || "default_avatar.jpeg", class: "container__letter-container__letter-block__individual-letter__pickers__individual-picker"
+          = image_tag comment.user.avatar.presence || "image.jpeg", class: "container__letter-container__letter-block__individual-letter__pickers__individual-picker"
+
   .container__letter-container__letter-block__individual-letter__sub-info
     .container__letter-container__letter-block__individual-letter__sub-info__publisher
       - if letter.site_name.present?
