@@ -1,0 +1,140 @@
+.container {
+  &__setting {
+    margin: 30px auto 0;
+    width: 850px;
+    background: #FFF;
+    &__container {
+      padding: 72px;
+      &__title {
+        padding-bottom: 32px;
+        border-bottom: 1px solid #d9d9d9;
+        font-size: 20px;
+      }
+      &__avatar {
+        @include clearfix();
+        padding-top: 56px;
+        &__label {
+          float: left;
+          line-height: 44px;
+        }
+        &__cover {
+          @include clearfix();
+          float: right;
+          margin-right: 125px;
+          &__image {
+            float: left;
+            display: block;
+            width: 65px;
+            height: 65px;
+            border-radius: 65px;
+          }
+          &__field {
+            position: relative;
+            right: 65px;
+            width: 200px;
+            height: 65px;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 100;
+          }
+          &__btn {
+            position: relative;
+            right: 170px;
+            padding: 10px;
+            border-radius: 2px;
+            border: 1px solid #EFEFEF;
+            background-color: #EFEFEF;
+            font-size: 14px;
+            color: #666;
+          }
+        }
+      }
+      &__name {
+        @include clearfix();
+        padding-top: 32px;
+        &__label {
+          float: left;
+          line-height: 44px;
+          font-size: 16px;
+        }
+        &__field {
+          @include clearfix();
+          float: right;
+          margin-right: 255px;
+          &__last {
+            float: left;
+            padding-left: 10px;
+            width: 220px;
+            height: 40px;
+            border-radius: 2px;
+            border: 1px solid #D9D9D9;
+            font-size: 14px;
+          }
+          &__first {
+            float: left;
+            margin-left: 20px;
+            padding-left: 10px;
+            width: 220px;
+            height: 40px;
+            border-radius: 2px;
+            border: 1px solid #D9D9D9;
+            font-size: 14px;
+          }
+        }
+      }
+      &__profile {
+        @include clearfix();
+        padding-top: 32px;
+        &__label {
+          float: left;
+          line-height: 44px;
+        }
+        &__field {
+          float: right;
+          padding: 10px;
+          width: 465px;
+          height: 200px;
+          border-radius: 2px;
+          border: 1px solid #D9D9D9;
+          font-size: 14px;
+        }
+      }
+      &__edit {
+        padding: 32px 0 32px 220px;
+        border-bottom: 1px solid #d9d9d9;
+        &__btn {
+          width: 145px;
+          height: 50px;
+          border-radius: 2px;
+          border: 1px solid #37509C;
+          background-color: #FFF;
+          font-size: 14px;
+          color: #37509C;
+          cursor: pointer;
+          &:hover {
+            background-color: #15274D;
+            color: #FFF;
+          }
+        }
+      }
+      &__delete {
+        float: right;
+        padding-top: 32px;
+        &__btn {
+          padding: 10px 30px;
+          border-radius: 2px;
+          border: 1px solid #ddd;
+          background-color: #FFF;
+          font-size: 12px;
+          color: #666;
+          cursor: pointer;
+          &:hover {
+            background-color: red;
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -30,6 +30,10 @@ class Letter < ApplicationRecord
     end
   end
 
+  def best_five_comments
+    comments.first(5)
+  end
+
   def create_letter
     agent = Mechanize.new
     page = agent.get(self.url)
