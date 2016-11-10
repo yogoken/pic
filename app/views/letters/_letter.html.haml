@@ -12,6 +12,17 @@
     %h2
       = link_to letter.title.truncate(28).presence || "No title", letter_path(letter), class: "container__letter-container__letter-block__individual-letter__title__font"
 
+  = link_to letter_path(letter), class: "container__letter-container__letter-block__individual-letter__user" do
+    .container__letter-container__letter-block__individual-letter__user__thumbnail
+      = image_tag letter.comments.first.user.avatar.presence || "default_avatar.jpeg", class: "container__letter-container__letter-block__individual-letter__user__thumbnail__image"
+    .container__letter-container__letter-block__individual-letter__user__info
+      .container__letter-container__letter-block__individual-letter__user__info__name
+        %h3
+          = letter.comments.first.user.nickname.presence || "No name"
+  = link_to letter_path(letter), class: "container__letter-container__letter-block__individual-letter__user-comment" do
+    %p
+      = letter.user_comment(letter.comments.first.user).content.truncate(53).presence || "No comment"
+
   .container__letter-container__letter-block__individual-letter__pickers
     - if letter.comments.length > 0
       - letter.best_seven_comments.each do |comment|
