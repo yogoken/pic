@@ -21,6 +21,10 @@ class Letter < ApplicationRecord
     "#{d.year}年#{d.month}月#{d.day}日"
   end
 
+  def user_comment(user)
+    comments.find_by(user_id: user.id)
+  end
+
   def max_like_user
     comment = comments.order("likes_count desc").first(1)[0]
     if comment.nil?
@@ -30,8 +34,8 @@ class Letter < ApplicationRecord
     end
   end
 
-  def best_five_comments
-    comments.first(5)
+  def best_seven_comments
+    comments.first(7)
   end
 
   def create_letter
