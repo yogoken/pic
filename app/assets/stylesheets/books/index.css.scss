@@ -1,0 +1,82 @@
+.container {
+  &__books-container {
+    padding: 28px 28px 0;
+    &__cover {
+      margin: 0 auto;
+      width: 796px;
+      &__individual {
+        @include clearfix();
+        display: block;
+        margin-bottom: 10px;
+        background-color: #FFF;
+        &__flame {
+          float: left;
+          width: 240px;
+          height: 300px;
+          overflow: hidden;
+          position: relative;
+          &__image {
+            width: 100%;
+            height: auto;
+          }
+        }
+        &__right-info {
+          float: left;
+          margin: 20px;
+          width: 516px;
+          &__title {
+            margin-bottom: 20px;
+            height: 55px;
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: bold;
+            color: black;
+          }
+          &__sub-info {
+            @include clearfix();
+            margin-bottom: 20px;
+            &__author {
+              float: left;
+              font-size: 14px;
+              color: #999;
+            }
+            &__manufacturer {
+              float: left;
+              margin-left: 20px;
+              font-size: 14px;
+              color: #999;
+            }
+          }
+          &__user {
+            @include clearfix();
+            display: block;
+            margin-top: 15px;
+            &__avatar {
+              float: left;
+              display: block;
+              width: 40px;
+              height: 40px;
+            }
+            &__info {
+              float: left;
+              margin-left: 10px;
+              &__name {
+                font-size: 16px;
+                font-weight: bold;
+                color: black;
+              }
+              &__profile {
+                margin-top: 10px;
+                font-size: 14px;
+                color: #999;
+              }
+            }
+          }
+          &__impression {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}

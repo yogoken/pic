@@ -1,0 +1,14 @@
+.container
+  .container__title-block
+    .container__title-block__title
+      = image_tag 'pro.png', class: "container__title-block__title__image"
+      Pickerのおすすめ本
+  .container__user-container
+    .container__user-container__cover
+      - @users.each do |user|
+        .container__user-container__cover__individual
+          = link_to user_books_path(user), class: "container__user-container__cover__individual__user-info" do
+            = image_tag user.avatar.presence || "default_avatar.jpeg", class: "container__user-container__cover__individual__user-info__image"
+            .container__user-container__cover__individual__user-info__right-info
+              .container__user-container__cover__individual__user-info__right-info__name
+                = user.nickname.presence || "No name"

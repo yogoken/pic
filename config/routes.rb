@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    resources :books, only: [:index, :show, :new, :create, :destroy, :search]
+  end
 end

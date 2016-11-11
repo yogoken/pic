@@ -1,0 +1,11 @@
+.container
+  .container__content
+    .container__content__search-box#search-box
+      キーワード検索
+      = form_tag( new_user_book_path(current_user), method: :get) do
+        = text_field_tag :book, "", id: "book_search", class: "container__content__search-box__form", name: "keyword", placeholder: "キーワードを打ち込んでください。", data: { toggle: "#{new_user_book_path(current_user)}" }
+        = submit_tag "検索", class: "container__content__search-box__btn"
+    .container__content__result
+      検索結果
+      .container__content__result__book-list#book-list
+        = render partial: "books/book_list"

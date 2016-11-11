@@ -1,0 +1,88 @@
+.container {
+  &__content {
+    margin: 50px auto 0;
+    width: 680px;
+    &__search-box {
+      &__form {
+        margin: 15px 0 30px;
+        padding-left: 10px;
+        width: 300px;
+        height: 31px;
+        border: 1px solid #D9D9D9;
+        border-radius: 2px;
+        font-size: 15px;
+      }
+      &__btn {
+        margin-bottom: 15px;
+        height: 35px;
+        border: 1px solid #D9D9D9;
+        border-radius: 2px;
+        font-size: 15px;
+        background-color: #FFF;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    &__result {
+      &__book-list {
+        margin-top: 15px;
+        &__book {
+          @include clearfix();
+          margin: 15px 0;
+          padding: 10px;
+          background-color: #FFF;
+          border-radius: 3px;
+          &__link {
+            display: block;
+            &__image {
+              display: block;
+              float: left;
+              width: 80px;
+              height: 100px;
+              border: 1px solid #15274D;
+            }
+          }
+          &__right-info {
+            float: left;
+            margin-left: 10px;
+            width: 458px;
+            &__title {
+              padding-bottom: 15px;
+              font-size: 18px;
+              font-weight: bold;
+              color: black;
+            }
+            &__author {
+              padding-bottom: 15px;
+              font-size: 14px;
+              color: #999;
+            }
+            &__manufacturer {
+              font-size: 14px;
+              color: #999;
+            }
+          }
+          &__submit {
+            display: block;
+            float: left;
+            margin: 32px 0 0 10px;
+            padding: 7px 0;
+            width: 80px;
+            text-align: center;
+            background-color: #FFF;
+            border: 1px solid #15274D;
+            border-radius: 2px;
+            font-size: 14px;
+            color: #15274D;
+            &:hover {
+              cursor: pointer;
+              background-color: #15274D;
+              color: #FFF;
+            }
+          }
+        }
+      }
+    }
+  }
+}
