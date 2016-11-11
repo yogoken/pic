@@ -1,0 +1,19 @@
+- if @search_books.present?
+  - @search_books.each do |book|
+    .container__content__result__book-list__book
+      = link_to book.url, class: "container__content__result__book-list__book__link" do
+        = image_tag book.image, class: "container__content__result__book-list__book__link__image"
+      .container__content__result__book-list__book__right-info
+        .container__content__result__book-list__book__right-info__title
+          = book.title.truncate(26)
+        .container__content__result__book-list__book__right-info__author
+          = "#{book.author} (著)"
+        .container__content__result__book-list__book__right-info__manufacturer
+          = book.manufacturer
+      = form_tag user_books_path(current_user), method: :create do
+        = hidden_field_tag 'book[title]', book.title
+        = hidden_field_tag 'book[image]', book.image
+        = hidden_field_tag 'book[url]', book.url
+        = hidden_field_tag 'book[author]', book.author
+        = hidden_field_tag 'book[manufacturer]', book.manufacturer
+        = submit_tag "投稿する", class: "container__content__result__book-list__book__submit"

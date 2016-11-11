@@ -1,0 +1,30 @@
+.container
+  = render partial: "users/user_info", locals: { user: @user }
+  = render partial: "users/navbar", locals: { user: @user }
+  .container__books-container
+    .container__books-container__cover
+      - @books.each do |book|
+        .container__books-container__cover__individual
+          = link_to user_book_path(book.user, book), class: "container__books-container__cover__individual__flame" do
+            = image_tag book.image, class: "container__books-container__cover__individual__flame__image"
+          .container__books-container__cover__individual__right-info
+            = link_to user_book_path(book.user, book) do
+              .container__books-container__cover__individual__right-info__title
+                = book.title
+            .container__books-container__cover__individual__right-info__sub-info
+              .container__books-container__cover__individual__right-info__sub-info__author
+                = "#{book.author} (著)"
+              .container__books-container__cover__individual__right-info__sub-info__manufacturer
+                = "#{book.manufacturer} (社)"
+            .container__books-container__cover__individual__right-info__user
+              = image_tag book.user.avatar, class: "container__books-container__cover__individual__right-info__user__avatar"
+              .container__books-container__cover__individual__right-info__user__info
+                .container__books-container__cover__individual__right-info__user__info__name
+                  = book.user.full_name
+                .container__books-container__cover__individual__right-info__user__info__profile
+                  = book.user.profile
+            .container__books-container__cover__individual__right-info__impression
+              - if book.impression(@user).present?
+                = book.impression(@user).content
+              - else
+                = "No impression"

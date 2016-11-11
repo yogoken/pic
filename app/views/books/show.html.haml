@@ -1,0 +1,50 @@
+.container
+  = render partial: "layouts/sidebar"
+  .container__book-container
+    .container__book-container__book-info
+      .container__book-container__book-info__block
+        .container__book-container__book-info__block__flame
+          = image_tag @book.image, class: "container__book-container__book-info__block__flame__image"
+        .container__book-container__book-info__block__right-info
+          = link_to @book.title.truncate(23), @book.url, class: "container__book-container__book-info__block__right-info__title"
+          .container__book-container__book-info__block__right-info__author
+            = "#{@book.author} (著)"
+          .container__book-container__book-info__block__right-info__manufacturer
+            = "#{@book.manufacturer} (社)"
+          .container__book-container__book-info__block__right-info__recommend-user
+            = image_tag @book.user.avatar, class: "container__book-container__book-info__block__right-info__recommend-user__avatar"
+            .container__book-container__book-info__block__right-info__recommend-user__info
+              .container__book-container__book-info__block__right-info__recommend-user__info__name
+                = @book.user.full_name
+                = image_tag "pro.png", class: "container__book-container__book-info__block__right-info__recommend-user__info__name__pro"
+              .container__book-container__book-info__block__right-info__recommend-user__info__profile
+                = @book.user.profile
+          = link_to "購入する(Amazon)", @book.url, class: "container__book-container__book-info__block__right-info__buy", target: "_blank"
+    .container__book-container__book-impression
+      - if user_signed_in?
+        .container__book-container__book-impression__block
+          .container__book-container__book-impression__block__cover
+            = image_tag current_user.avatar.presence || "default_avatar.jpeg", class: "container__book-container__book-impression__block__cover__avatar"
+          .container__book-container__book-impression__block__impression
+            = form_for @impression, url: user_book_impressions_path(current_user, @book), method: :create do |f|
+              = f.text_area :content, class: "container__book-container__book-impression__block__impression__form", placeholder: "感想を書く（任意）"
+              = f.submit "Pick", class: "container__book-container__book-impression__block__impression__pick"
+    .container__book-container__impressions
+      .container__book-container__impressions__block
+        - @impressions.each do |impression|
+          .container__book-container__impressions__block__individual
+            .container__book-container__impressions__block__individual__user
+              .container__book-container__impressions__block__individual__user__cover
+                = link_to user_path(impression.user) do
+                  = image_tag impression.user.avatar.presence || "default_avatar.jpeg", class: "container__book-container__impressions__block__individual__user__cover__avatar"
+              .container__book-container__impressions__block__individual__user__info
+                .container__book-container__impressions__block__individual__user__info__name
+                  = link_to impression.user.full_name.presence || "No name", user_path(impression.user), class: "container__book-container__impressions__block__individual__user__info__name__font"
+                .container__book-container__impressions__block__individual__user__info__created-at
+                  = "#{time_ago_in_words impression.created_at}前"
+              - if current_user == impression.user
+                = link_to "削除", user_book_impression_path(current_user, impression.book, impression), method: :delete, class: "container__book-container__impressions__block__individual__user__destroy"
+            .container__book-container__impressions__block__individual__impression
+              .container__book-container__impressions__block__individual__impression__content
+                = impression.content
+
