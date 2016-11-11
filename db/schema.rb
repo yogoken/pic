@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110114508) do
+ActiveRecord::Schema.define(version: 20161111123206) do
+
+  create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "title",                     null: false
+    t.string   "image",        default: "", null: false
+    t.string   "url",          default: "", null: false
+    t.string   "author",       default: "", null: false
+    t.string   "manufacturer", default: "", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_books_on_user_id", using: :btree
+  end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
@@ -61,6 +73,7 @@ ActiveRecord::Schema.define(version: 20161110114508) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "books", "users"
   add_foreign_key "comments", "letters"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "comments"
