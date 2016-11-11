@@ -1,7 +1,7 @@
 .header
   .header__title
     %h1
-      = link_to 'Pic', root_path, class: 'header__title__font'
+      = link_to 'TECH::SHARE', root_path, class: 'header__title__font'
   .header__nav
     - if user_signed_in?
       .header__nav__user#user-header-image
@@ -10,7 +10,7 @@
       = render partial: 'letters/new_modal'
     - else
       .header__nav__regist
-        = link_to '無料登録', new_user_session_path, class: 'header__nav__regist__font'
+        = link_to '無料登録', new_user_registration_path, class: 'header__nav__regist__font'
       .header__nav__login
         = link_to 'ログイン', new_user_session_path, class: 'header__nav__login__font'
 
