@@ -1,0 +1,212 @@
+.container {
+  &__book-container {
+    margin-left: 200px;
+    &__book-info {
+      padding: 28px 28px 14px;
+      &__block {
+        margin: 0 auto;
+        width: 550px;
+        @include clearfix();
+        background-color: #FFF;
+        &__flame {
+          float: left;
+          width: 250px;
+          height: 360px;
+          overflow: hidden;
+          position: relative;
+          &__image {
+            width: 100%;
+            height: auto;
+          }
+        }
+        &__right-info {
+          float: left;
+          margin: 20px;
+          width: 260px;
+          height: 100%;
+          &__title {
+            display: block;
+            height: 64px;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 32px;
+            color: black;
+          }
+          &__author {
+            padding-top: 20px;
+            font-size: 14px;
+            color: #999;
+          }
+          &__manufacturer {
+            padding-top: 20px;
+            font-size: 14px;
+            color: #999;
+          }
+          &__recommend-user {
+            @include clearfix();
+            padding-top: 40px;
+            width: 100%;
+            &__avatar {
+              float: left;
+              display: block;
+              width: 76px;
+              height: 76px;
+            }
+            &__info {
+              float: left;
+              margin-left: 10px;
+              &__name {
+                margin-bottom: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                &__pro {
+                  margin-left: 5px;
+                  width: 28px;
+                  height: 14px;
+                }
+              }
+              &__profile {
+                margin-top: 10px;
+                font-size: 14px;
+                color: #999;
+              }
+            }
+          }
+          &__buy {
+            display: block;
+            margin-top: 40px;
+            padding: 7px 0;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #15274D;
+            border-radius: 3px;
+            color: black;
+            &:hover {
+              background-color: #15274D;
+              color: #FFF;
+            }
+          }
+        }
+      }
+    }
+    &__book-impression {
+      padding: 0 28px;
+      &__block {
+        @include clearfix();
+        width: 550px;
+        margin: 0 auto;
+        background-color: #FFF;
+        border-bottom: 1px solid #EAEAEA;
+        &__cover {
+          float: left;
+          padding: 16px 24px;
+          &__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+          }
+        }
+        &__impression {
+          @include clearfix();
+          float: left;
+          display: block;
+          padding: 14px 0;
+          width: 462px;
+          &__form {
+            display: block;
+            float: left;
+            resize: none;
+            overflow: auto;
+            padding: 10px 0 0 10px;
+            width: 300px;
+            font-size: 15px;
+            border: 1px solid #EAEAEA;
+            border-radius: 2px;
+          }
+          &__pick {
+            display: block;
+            float: right;
+            margin: 3px 16px 0 0;
+            padding: 10px 25px;
+            background-color: #27375c;
+            border: 1px solid #27375c;
+            border-radius: 2px;
+            font-size: 14px;
+            color: #FFF;
+            cursor: pointer;
+            &:hover {
+              opacity: 0.88;
+            }
+          }
+        }
+      }
+    }
+    &__impressions {
+      padding: 0 28px;
+      &__block {
+        margin: 0 auto;
+        width: 550px;
+        background-color: #FFF;
+        &__individual {
+          border-bottom: 1px solid #EAEAEA;
+          margin: 0 24px;
+          padding: 16px 0;
+          &__user {
+            @include clearfix();
+            &__cover {
+              float: left;
+              &__avatar {
+                width: 40px;
+                height: 40px;
+              }
+            }
+            &__info {
+              @include clearfix();
+              float: left;
+              margin-left: 16px;
+              &__name {
+                margin-top: 5px;
+                &__font {
+                  color: #15274D;
+                  font-size: 16px;
+                  font-weight: bold;
+                }
+              }
+              &__created-at {
+                margin-top: 5px;
+                color: #999;
+                font-size: 12px;
+              }
+            }
+            &__destroy {
+              float: right;
+              padding: 5px 10px;
+              background-color: #27375c;
+              border: 1px solid #27375c;
+              border-radius: 2px;
+              font-size: 14px;
+              color: #FFF;
+              cursor: pointer;
+              &:hover {
+                opacity: 0.88;
+              }
+            }
+          }
+          &__impression {
+            position: relative;
+            min-height: 48px;
+            margin: 8px 0;
+            &__content {
+              display: block;
+              width: 400px;
+              padding-left: 56px;
+              line-height: 25px;
+              font-size: 14px;
+              color: #222;
+            }
+          }
+        }
+      }
+    }
+  }
+}

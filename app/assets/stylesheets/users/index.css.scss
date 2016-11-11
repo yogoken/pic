@@ -1,0 +1,61 @@
+.container {
+  &__title-block {
+    position: fixed;
+    width: 80%;
+    margin-left: 200px;
+    background-color: #FFF;
+    opacity: 0.88;
+    &__title {
+      padding: 16px 20px 20px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #15274D;
+      &__image {
+        width: 28px;
+        height: 14px;
+      }
+    }
+  }
+  &__user-container {
+    margin-left: 150px;
+    padding-top: 46px;
+    &__cover {
+      @include clearfix();
+      width: 930px;
+      margin: 0 auto;
+      padding: 20px;
+      &__individual {
+        float: left;
+        padding: 10px;
+        margin: 5px;
+        width: 280px;
+        background-color: #FFF;
+        &__user-info {
+          @include clearfix();
+          &__image {
+            float: left;
+            width: 70px;
+            height: 70px;
+          }
+          &__right-info {
+            float: left;
+            margin-left: 5px;
+            &__name {
+              width: 200px;
+              font-size: 15px;
+              font-weight: bold;
+              color: black;
+            }
+            &__profile {
+              margin-top: 7px;
+              width: 200px;
+              font-size: 12px;
+              line-height: 16px;
+              color: #999;
+            }
+          }
+        }
+      }
+    }
+  }
+}

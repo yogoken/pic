@@ -6,11 +6,16 @@
 
 @import './devise/regist_login';
 
-@import "./flash/flash";
+@import './flash/flash';
 
 @import './letters/index';
 @import './letters/new';
 @import './letters/show';
 
+@import './users/index';
 @import './users/show';
 @import './users/edit';
+
+@import "./books/index";
+@import "./books/new";
+@import "./books/show";

@@ -3,17 +3,23 @@
   min-width: 600px;
   height: 50px;
   position: fixed;
-  box-shadow: 0 0 2px #666;
+  box-shadow: 0 0 2px #666,0 0 8px #222;
   background-color: #660033;
   color: #FFFFFF;
   z-index: 100;
   &__title {
-    margin: 0 auto;
+    display: block;
     text-align: center;
     line-height: 50px;
-    width: 300px;
+    width: 100%;
     &__font {
-      color: #FFFFFF;
+      color: white;
+      font-size: 24px;
+    }
+    &__logo {
+      margin-top: 14px;
+      width: 104px;
+      height: auto;
     }
   }
   &__nav {
@@ -73,7 +79,7 @@
     }
     &__regist {
       position: relative;
-      top: 17px;
+      top: 16px;
       right: 90px;
       &__font {
         color: #FFFFFF;
@@ -118,6 +124,7 @@
         padding: 15px;
         &:hover {
           background-color: #EFEFEF;
+          cursor: pointer;
         }
         &__font {
           color: black;
@@ -129,6 +136,7 @@
         border-top: 1px solid #D9D9D9;
         &:hover {
           background-color: #EFEFEF;
+          cursor: pointer;
         }
         &__font {
           color: black;
@@ -140,6 +148,7 @@
         border-top: 1px solid #D9D9D9;
         &:hover {
           background-color: #EFEFEF;
+          cursor: pointer;
         }
         &__font {
           color: black;
@@ -150,6 +159,129 @@
   }
 }
 
+.book {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  &__back {
+    z-index: 10001;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &__book-menu {
+      position: fixed;
+      top: 52px;
+      right: 155px;
+      z-index: 10002;
+      min-width: 120px;
+      background-color: #FFF;
+      border-radius: 3px;
+      box-shadow: 0 0 4px #CCC;
+      &__books-path {
+        @include clearfix();
+        display: block;
+        padding: 15px;
+        &:hover {
+          background-color: #EFEFEF;
+        }
+        &__image {
+          float: left;
+          display: block;
+          width: 28px;
+          height: 14px;
+        }
+        &__sentence {
+          float: left;
+          margin-left: 5px;
+          font-size: 14px;
+          color: black;
+        }
+      }
+      &__posting-book {
+        display: block;
+        padding: 15px;
+        border-top: 1px solid #D9D9D9;
+        font-size: 14px;
+        color: black;
+        &:hover {
+          background-color: #EFEFEF;
+        }
+      }
+    }
+  }
+}
+
+.storage {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  &__back {
+    z-index: 10001;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &__storage-menu {
+      position: fixed;
+      top: 52px;
+      right: 90px;
+      z-index: 100;
+      min-width: 600px;
+      background-color: #FFF;
+      border-radius: 3px;
+      box-shadow: 0 0 4px #CCC;
+      &__link {
+        @include clearfix();
+        display: block;
+        border-top: 1px solid #D9D9D9;
+        &:hover {
+          background-color: #EFEFEF;
+        }
+        &__image {
+          display: block;
+          margin: 10px 0 0 10px;
+          float: left;
+          width: 40px;
+          height: 40px;
+        }
+        &__right-block {
+          float: left;
+          padding: 10px 15px;
+          &__title {
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          &__time {
+            margin-top: 15px;
+            color: #999;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
 #user-menu-container {
+  display: none;
+}
+
+#storage-letters {
+  display: none;
+}
+
+#book-menu-container {
   display: none;
 }
