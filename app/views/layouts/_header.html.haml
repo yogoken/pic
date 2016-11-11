@@ -5,7 +5,7 @@
   .header__nav
     - if user_signed_in?
       .header__nav__user#user-header-image
-        = image_tag current_user.avatar, class: 'header__nav__user'
+        = image_tag current_user.avatar, class: 'header__nav__user__avatar'
       = image_tag "book.png", class: "header__nav__user-index", id: "books"
       = image_tag "pen.png", class: 'header__nav__new-letter', id: "letter-new"
       = render partial: 'letters/new_modal'

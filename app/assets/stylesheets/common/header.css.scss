@@ -35,9 +35,14 @@
       height: 40px;
       width: 40px;
       &__avatar {
-        width: 26px;
-        height: 26px;
-        border-radius: 26px;
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        right: 100px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: top center;
+        background-color: #FFF;
         &:hover {
           opacity: 0.8;
           cursor: pointer;
