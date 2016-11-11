@@ -1,4 +1,8 @@
 .container
   .container__letter-container
+    .container__letter-container__popular-block
+      = link_to '---------------------------------------------------------------------------- Popular POSTS ----------------------------------------------------------------------------', popular_index_path, class: 'container__letter-container__popular-block__font'
+    .container__letter-container__newest-block
+      = link_to '---------------------------------------------------------------------------- Newest POSTS ----------------------------------------------------------------------------', root_path, class: 'container__letter-container__newest-block__font'
     .container__letter-container__letter-block
       = render @letters

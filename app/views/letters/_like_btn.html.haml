@@ -1,0 +1,13 @@
+- if user_signed_in?
+  = link_to letter_comment_likes_path(@letter, comment), controller: :likes, method: :post, class: "container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link", remote: true do
+    .container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link__likes-count
+      = comment.likes.length
+    .container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link__likes
+      Like
+- else
+  = link_to letter_comment_likes_path(@letter, comment), controller: :likes, method: :post, class: "container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link" do
+    .container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link__likes-count
+      = comment.likes.length
+    .container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link__likes
+      Like
+

@@ -1,0 +1,9 @@
+.container
+  .container__letter-container
+    %ul.nav.nav-pills.col-lg-11
+    %li{ class: "#{ "active" if @status == 'popular' }" }
+      = link_to 'Popular PROTO', popular_index_path
+    %li{ class: "#{ "active" if @status == 'newest' }" }
+      = link_to 'Newest PROTO', root_path
+    .container__letter-container__letter-block
+      = render @letters

@@ -7,8 +7,8 @@
       = link_to 'こちら', new_user_registration_path, class: 'container__regist-form__login-message__link'
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .container__regist-form__form-group
-        = f.email_field :email, autofocus: true, placeholder: '登録したメールアドレス', class: 'container__regist-form__form-group__field'
+        = f.email_field :email, autofocus: true, placeholder: 'email', class: 'container__regist-form__form-group__field'
       .container__regist-form__form-group
-        = f.password_field :password, autocomplete: 'new-password', placeholder: 'パスワード', class: 'container__regist-form__form-group__field'
+        = f.password_field :password, autocomplete: 'new-password', placeholder: 'password', class: 'container__regist-form__form-group__field'
       .container__regist-form__actions
         = f.submit 'ログイン', class: 'container__regist-form__actions__submit-btn'

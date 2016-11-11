@@ -76,6 +76,26 @@
     @include clearfix();
     margin: 20px 0;
     padding-top: 28px;
+    &__popular-block {
+      width: 920px;
+      height: 20px;
+      background-color: #191970;
+      margin: 3px auto;
+      &__font {
+        line-height: 20px;
+        color: white;
+      }
+    }
+    &__newest-block {
+      width: 920px;
+      height: 20px;
+      background-color: #8B0000;
+      margin: 3px auto;
+      &__font {
+        line-height: 20px;
+        color: white;
+      }
+    }
     &__letter-block {
       margin: 0 auto;
       width: 950px;

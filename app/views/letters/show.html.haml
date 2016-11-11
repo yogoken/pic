@@ -15,7 +15,7 @@
         .container__contents-container__news-comment__pick-editor
           .container__contents-container__news-comment__pick-editor__cover
             = image_tag current_user.avatar.presence || 'default_avatar.jpeg', class: "container__contents-container__news-comment__pick-editor__cover__avatar"
-          = form_for [@letter, @comment] ,method: :create do |f|
+          = form_for [@letter, @comment] , method: :create do |f|
             .container__contents-container__news-comment__pick-editor__comment
               = f.text_area :content, class: "container__contents-container__news-comment__pick-editor__comment__form", placeholder: "コメントを書く（任意）"
             .container__contents-container__news-comment__pick-editor__pick
@@ -40,10 +40,10 @@
                 = comment.content
               .container__contents-container__news-comment__comments__individual__comment__like-container
                 .container__contents-container__news-comment__comments__individual__comment__like-container__contents-container__like-panel{id: "like-btn-#{comment.id}"}
-                  / - if user_signed_in?
-                  /   - unless comment.likes.exists?(user_id: current_user.id)
-                  /     = render partial: "letters/like_btn", locals: { comment: comment }
-                  /   - else
-                  /     = render partial: "letters/like_btn_red", locals: { comment: comment }
-                  / - else
-                  /   = render partial: "letters/like_btn", locals: { comment: comment }
+                  - if user_signed_in?
+                    - unless comment.likes.exists?(user_id: current_user.id)
+                      = render partial: "letters/like_btn", locals: { comment: comment }
+                    - else
+                      = render partial: "letters/like_btn_red", locals: { comment: comment }
+                  - else
+                    = render partial: "letters/like_btn", locals: { comment: comment }
