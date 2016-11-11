@@ -1,3 +1,12 @@
 .user-container__user-box
   .user-container__user-box__user
     .user-container__user-box__user__left-info
+      = image_tag @user.avatar.presence || "default_avatar.jpeg", class: "user-container__user-box__user__left-info__avatar"
+    .user-container__user-box__user__right-info
+      .user-container__user-box__user__right-info__name
+        - if @user.nickname.present?
+          = @user.nickname.truncate(35)
+        - else
+          No name
+      .user-container__user-box__user__right-info__like-count
+        %p 総 Like 数: #{@user.sum_like}
