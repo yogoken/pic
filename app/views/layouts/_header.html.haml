@@ -19,6 +19,8 @@
     .user__back#user-back-close
       .user__back__user-menu#user-menu-container
         .user__back__user-menu__user-name
-          = link_to current_user.nickname.presence || 'No name', edit_user_path(current_user), class: 'user__back__user-menu__user-name__font'
+          = link_to current_user.nickname.presence || 'No name', user_path(current_user), class: 'user__back__user-menu__user-name__font'
+        .user__back__user-menu__user-edit
+          = link_to "設定", edit_user_path(current_user), class: "user__back__user-menu__user-edit__font"
         .user__back__user-menu__logout
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user__back__user-menu__logout__font'
