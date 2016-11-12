@@ -1,0 +1,31 @@
+.user-form-container {
+  max-width: 480px;
+  padding-top: 60px;
+  margin: 0 auto;
+  h1 {
+    font-size: user-form-container;
+    font-weight: 300;
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+}
+
+.form-area__form--input-user {
+  border-radius: 8px;
+  border: 1px solid #DCE3DC;
+  box-sizing: border-box;
+  background-color: #FFF;;
+  width: 50%;
+  height: 34px;
+  margin: 16px;
+}
+
+.form-area__form--label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.btn-login {
+  margin-top: 16px;
+}
+
