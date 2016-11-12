@@ -1,6 +1,6 @@
 class Letter < ApplicationRecord
   has_many :comments, ->{ order("likes_count desc") }, dependent: :destroy
-
+  belongs_to :group
   validates :url, format: URI::regexp(%w(http https))
 
   def user_comment(user)
