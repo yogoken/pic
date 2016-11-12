@@ -14,6 +14,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -26,7 +30,7 @@ group :development do
   gem 'xray-rails'
 end
 
-group :production do
+group :production, :staging do
   gem 'unicorn'
 end
 
