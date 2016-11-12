@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111123206) do
+ActiveRecord::Schema.define(version: 20161112013201) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20161111123206) do
     t.integer  "likes_count"
     t.index ["letter_id"], name: "index_comments_on_letter_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "letters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -69,7 +76,9 @@ ActiveRecord::Schema.define(version: 20161111123206) do
     t.datetime "updated_at",                          null: false
     t.string   "nickname"
     t.string   "avatar"
+    t.integer  "group_id",               default: 1
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["group_id"], name: "index_users_on_group_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

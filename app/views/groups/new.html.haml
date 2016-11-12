@@ -1,0 +1,10 @@
+%h1 新規グループを作成
+= form_for @group do |f|
+  .form-area
+    = f.label :name, 'グループ名', class: "form-area__form--label"
+    = f.text_field :name, class: "form-area__form--input-user"
+    = f.label :key, 'グループキー', class: "form-area__form--label"
+    = f.text_field :key, class: "form-area__form--input-user"
+  = f.submit "グループを作成する", class: "btn btn--dead form-area__btn--user-form btn-login"
+  = link_to "既にあるグループに参加する場合はこちら", new_group_session_path
+
