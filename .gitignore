@@ -59,3 +59,4 @@ config/environments/*.local.yml
 *.jpeg
 *.gif
 /public/
+/shared/
