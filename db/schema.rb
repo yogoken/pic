@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112013201) do
+ActiveRecord::Schema.define(version: 20161112090408) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -76,9 +76,7 @@ ActiveRecord::Schema.define(version: 20161112013201) do
     t.datetime "updated_at",                          null: false
     t.string   "nickname"
     t.string   "avatar"
-    t.integer  "group_id",               default: 1
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["group_id"], name: "index_users_on_group_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
