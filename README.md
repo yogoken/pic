@@ -1,6 +1,6 @@
 # 仕様書
 ## 1, サービス名
-TECH::SHARE
+TECH::SHARE (http://52.199.29.59/)
 
 [![https://gyazo.com/3e7a19db848ae42d9cb814b2612cd970](https://i.gyazo.com/3e7a19db848ae42d9cb814b2612cd970.png)](https://gyazo.com/3e7a19db848ae42d9cb814b2612cd970)
 
