@@ -2,7 +2,7 @@ class LettersController < ApplicationController
   before_action :authenticate_user!, only: %i(new create show)
 
   def index
-    @letters = Letter.order('created_at desc')
+    @letters = Letter.order('created_at desc').page(params[:page])
     @status = 'newest'
   end
 
