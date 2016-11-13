@@ -4,18 +4,20 @@ class CommentsController < ApplicationController
 
   def create
     if Comment.create(create_params)
-      flash.now[:notice] = ""
+      flash.now[:notice] = "Pickできました。"
     else
-      flash.now[:alert] = "Pick$B$G$-$^$;$s$G$7$?!#(B"
+      flash.now[:alert] = "Pickできませんでした。"
     end
+    redirect_to :back
   end
 
   def destroy
     if Comment.find(params[:id]).destroy
-      flash.now[:notice] = "Pick$B$r:o=|$7$^$7$?!#(B"
+      flash.now[:notice] = "Pickを削除しました。"
     else
-      flash.now[:alert] = "Pick$B$r:o=|$G$-$^$;$s$G$7$?!#(B"
+      flash.now[:alert] = "Pickを削除できませんでした。"
     end
+    redirect_to :back
   end
 
   private
