@@ -1,6 +1,8 @@
 class Letter < ApplicationRecord
   has_many :comments, ->{ order("likes_count desc") }, dependent: :destroy
+
   validates :url, format: URI::regexp(%w(http https))
+  paginates_per 12
 
   def user_comment(user)
     comments.find_by(user_id: user.id)
