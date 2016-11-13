@@ -1,7 +1,8 @@
 .header
   .header__title
     %h1
-      = link_to 'TECH::SHARE', root_path, class: 'header__title__font'
+      = link_to root_path, class: 'header__title__font' do
+        = image_tag 'techshare.png', class: 'header__title__techshare'
   .header__nav
     - if user_signed_in?
       .header__nav__user#user-header-image
