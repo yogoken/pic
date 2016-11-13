@@ -6,3 +6,7 @@
       = link_to '---------------------------------------------------------------------------- Newest POSTS ----------------------------------------------------------------------------', root_path, class: 'container__letter-container__newest-block__font'
     .container__letter-container__letter-block
       = render @letters
+  
+  .container__pagination-center
+    .container__pagination-center__format
+      = paginate(@letters)
