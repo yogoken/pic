@@ -33,6 +33,15 @@ class LettersController < ApplicationController
     @comments = @letter.comments
   end
 
+  def destroy
+    if Letter.find(params[:id]).destroy
+      flash.now[:notice] = '記事を削除しました'
+    else
+      flash.now[:alert] = '記事を削除できませんでした'
+    end
+    redirect_to :back
+  end
+
   private
 
   def url_params
