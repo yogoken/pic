@@ -20,11 +20,4 @@
               = image_tag book.user.avatar, class: "container__books-container__cover__individual__right-info__user__avatar"
               .container__books-container__cover__individual__right-info__user__info
                 .container__books-container__cover__individual__right-info__user__info__name
-                  = book.user.full_name
-                .container__books-container__cover__individual__right-info__user__info__profile
-                  = book.user.profile
-            .container__books-container__cover__individual__right-info__impression
-              - if book.impression(@user).present?
-                = book.impression(@user).content
-              - else
-                = "No impression"
+                  = book.user.nickname
