@@ -6,6 +6,17 @@
           = image_tag @letter.image.presence || 'yogoken.png', class: 'container__contents-container__contents-area__letter-image__thumbnail'
       .container__contents-container__contents-area__letter-title
         = link_to @letter.title.truncate(40).presence || "NO TITLE", @letter.url, class: "container__contents-container__contents-area__letter-title__font", target: "_blank"
+      .container__contents-container__contents-area__meta
+        .container__contents-container__contents-area__meta__site-name
+          = @letter.site_name.truncate(12).presence || "No site name"
+        .container__contents-container__contents-area__meta__time-ago
+          = "#{time_ago_in_words(@letter.created_at)}前"
+        .container__contents-container__contents-area__meta__storage
+          - if user_signed_in?
+            - unless current_user.storage_letters.include?(@letter)
+              = render partial: "letters/storage_btn"
+            - else
+              = render partial: "letters/storage_btn_red"
       .container__contents-container__contents-area__read-more
         = link_to "続きを読む", @letter.url, class: "container__contents-container__contents-area__read-more__btn", target: "_blank"
 

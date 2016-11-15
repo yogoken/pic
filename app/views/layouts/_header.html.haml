@@ -7,8 +7,9 @@
     - if user_signed_in?
       .header__nav__user#user-header-image
         = image_tag current_user.avatar, class: 'header__nav__user__avatar'
-      = image_tag "book.png", class: "header__nav__user-index", id: "books"
-      = image_tag "pen.png", class: 'header__nav__new-letter', id: "letter-new"
+      = image_tag 'book.png', class: 'header__nav__user-index', id: 'books'
+      = image_tag 'flag.png', class: 'header__nav__user-storage', id: 'user-storages'
+      = image_tag 'pen.png', class: 'header__nav__new-letter', id: 'letter-new'
       = render partial: 'letters/new_modal'
     - else
       .header__nav__regist
@@ -23,15 +24,28 @@
         .user__back__user-menu__user-name
           = link_to current_user.nickname.presence || 'No name', user_path(current_user), class: 'user__back__user-menu__user-name__font'
         .user__back__user-menu__user-edit
-          = link_to "設定", edit_user_path(current_user), class: "user__back__user-menu__user-edit__font"
+          = link_to '設定', edit_user_path(current_user), class: 'user__back__user-menu__user-edit__font'
         .user__back__user-menu__logout
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'user__back__user-menu__logout__font'
 - if user_signed_in?
   .book#books-back
     .book__back#books-back-close
       .book__back__book-menu#books-menu-container
-        = link_to users_path, class: "book__back__book-menu__books-path" do
-          = image_tag "pro.png", class: "book__back__book-menu__books-path__image"
+        = link_to users_path, class: 'book__back__book-menu__books-path' do
+          = image_tag 'pro.png', class: 'book__back__book-menu__books-path__image'
           .book__back__book-menu__books-path__sentence
             Pickerのおすすめ本
-        = link_to "おすすめ本の投稿", new_user_book_path(current_user), class: "book__back__book-menu__posting-book"
+        = link_to 'おすすめ本の投稿', new_user_book_path(current_user), class: 'book__back__book-menu__posting-book'
+
+  .storage#storage-back
+    .storage__back#storage-back-close
+      .storage__back__storage-menu#storage-letters
+        - if current_user.storage_letters.present?
+          - current_user.storages.each do |storage|
+            = link_to letter_path(storage.letter), class: "storage__back__storage-menu__link" do
+              = image_tag storage.letter.image, class: "storage__back__storage-menu__link__image"
+              .storage__back__storage-menu__link__right-block
+                .storage__back__storage-menu__link__right-block__title
+                  = storage.letter.title.truncate(40).presence || "No name"
+                .storage__back__storage-menu__link__right-block__time
+                  = "#{time_ago_in_words(storage.created_at)}前"

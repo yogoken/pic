@@ -1,0 +1,3 @@
+= form_for([current_user, @create_storage]) do |f|
+  = f.hidden_field :letter_id, value: @letter.id
+  = f.submit "保管する", class: "container__contents-container__contents-area__meta__storage__normal-btn"
