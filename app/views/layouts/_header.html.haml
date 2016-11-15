@@ -2,12 +2,12 @@
   .header__title
     %h1
       = link_to root_path, class: 'header__title__font' do
-        = image_tag 'techshare.png', class: 'header__title__techshare'
+        = image_tag 'tech-share.png', class: 'header__title__techshare'
   .header__nav
     - if user_signed_in?
       .header__nav__user#user-header-image
         = image_tag current_user.avatar, class: 'header__nav__user__avatar'
-      = image_tag 'book.png', class: 'header__nav__user-index', id: 'books'
+      =# image_tag 'book.png', class: 'header__nav__user-index', id: 'books'
       = image_tag 'flag.png', class: 'header__nav__user-storage', id: 'user-storages'
       = image_tag 'pen.png', class: 'header__nav__new-letter', id: 'letter-new'
       = render partial: 'letters/new_modal'
