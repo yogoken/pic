@@ -31,6 +31,8 @@ class LettersController < ApplicationController
     @letter = Letter.find(params[:id])
     @comment = Comment.new
     @comments = @letter.comments
+    @create_storage = Storage.new
+    @delete_storage = Storage.find_by(user_id: current_user.id, letter_id: @letter.id)
   end
 
   def destroy
