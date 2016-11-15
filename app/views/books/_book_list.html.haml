@@ -2,7 +2,8 @@
   - @search_books.each do |book|
     .container__content__result__book-list__book
       = link_to book.url, class: "container__content__result__book-list__book__link" do
-        = image_tag book.image, class: "container__content__result__book-list__book__link__image"
+        - if book.image
+          = image_tag book.image, class: "container__content__result__book-list__book__link__image"
       .container__content__result__book-list__book__right-info
         .container__content__result__book-list__book__right-info__title
           = book.title.truncate(26)
