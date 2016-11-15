@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :comments, ->{ order("updated_at desc") }, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :books, ->{ order("created_at desc") }
+  has_many :comments, ->{ order('updated_at desc') }, dependent: :destroy
+  has_many :likes,                                    dependent: :destroy
+  has_many :books,    ->{ order('created_at desc') }
+  has_many :storages, ->{ order('created_at desc') }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -24,5 +25,13 @@ class User < ApplicationRecord
       sum_likes += comment.likes.length
     end
     sum_likes
+  end
+
+  def storage_letters
+    letters = []
+    self.storages.each do |storage|
+      letters.push(storage.letter)
+    end
+    letters.reject(&:blank?)
   end
 end
