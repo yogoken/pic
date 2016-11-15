@@ -33,6 +33,17 @@
     top: 0;
     bottom: 0;
     font-size: 12px;
+    &__popular {
+      position: relative;
+      top: -20px;
+      right: 900px;
+      height: 2px;
+      width: 10px;
+      &__font {
+        color: #FFFFFF;
+        font-family: "Hiragino Kaku Gothic Pro Pro";
+      }
+    }
     &__user {
       position: relative;
       right: 100px;
