@@ -10,7 +10,7 @@
     = render partial: 'layouts/header'
     - flash.each do |type, msg|
       - if type == 'notice' && msg.blank?
-        = image_tag 'logo.png', id: 'logo'
+        = image_tag 'logo.svg', id: 'logo'
       - else
         %div{ class: "#{type}", id: 'flash' }
           = msg
