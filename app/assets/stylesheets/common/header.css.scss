@@ -35,26 +35,31 @@
     font-size: 12px;
     &__popular {
       position: relative;
-      top: -20px;
-      right: 900px;
-      height: 2px;
-      width: 10px;
+      top: 5px;
+      right: 250px;
+      height: 40px;
+      width: 40px;
+      color: #FFFFFF;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: top center;
+      background-color: #FFF;
       &__font {
         color: #FFFFFF;
         font-family: "Hiragino Kaku Gothic Pro Pro";
       }
     }
     &__user {
-      position: relative;
       right: 100px;
-      top: 3px;
+      top: 1px;
       height: 40px;
       width: 40px;
       &__avatar {
+        top: 2px;
         position: absolute;
         width: 45px;
         height: 45px;
-        right: 100px;
+        right: 220px;
         border-radius: 50%;
         background-size: cover;
         background-position: top center;
@@ -67,7 +72,7 @@
     }
     &__user-index {
       position: relative;
-      bottom: 28px;
+      top: -66px;
       right: 100px;
       width: 24px;
       height: 24px;
@@ -78,7 +83,7 @@
     }
     &__user-storage {
       position: relative;
-      bottom: 29px;
+      top: -68px;
       right: 70px;
       width: 24px;
       height: 24px;
@@ -89,7 +94,7 @@
     }
     &__new-letter {
       position: relative;
-      bottom: 30px;
+      top: -68px;
       right: 40px;
       width: 24px;
       height: 24px;
