@@ -8,6 +8,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @impression = Impression.new
+    @impressions = @book.impressions
   end
 
   def new
@@ -17,10 +19,10 @@ class BooksController < ApplicationController
   def create
     book = Book.new(create_params)
     if book.save
-      flash[:notice] = ""
+      flash[:notice] = "おすすめ本の投稿に成功しました"
       redirect_to user_book_path(current_user, book)
     else
-      flash[:alert] = "おすすめ本の投稿に失敗しました。"
+      flash[:alert] = "おすすめ本の投稿に失敗しました"
       redirect_to :back
     end
   end
