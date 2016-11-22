@@ -21,3 +21,8 @@
               .container__books-container__cover__individual__right-info__user__info
                 .container__books-container__cover__individual__right-info__user__info__name
                   = book.user.nickname
+            .container__books-container__cover__individual__right-info__impression
+              - if book.impression(@user.id).present?
+                = book.impression(@user.id).content
+              - else
+                = "No impression"
