@@ -5,11 +5,11 @@
         = image_tag 'tech-share.png', class: 'header__title__techshare'
   .header__nav
     - if user_signed_in?
+      .header__nav__popular
+        = link_to image_tag('popular.png', size: "40x40"), popular_index_path
       .header__nav__user#user-header-image
         = image_tag current_user.avatar, class: 'header__nav__user__avatar'
-      =# image_tag 'book.png', class: 'header__nav__user-index', id: 'books'
-      .header__nav__popular
-        = link_to 'Popular', popular_index_path, class: 'header__nav__popular__font'
+      = image_tag 'book.png', class: 'header__nav__user-index', id: 'books'
       = image_tag 'flag.png', class: 'header__nav__user-storage', id: 'user-storages'
       = image_tag 'pen.png', class: 'header__nav__new-letter', id: 'letter-new'
       = render partial: 'letters/new_modal'
