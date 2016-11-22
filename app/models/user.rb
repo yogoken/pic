@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :likes,                                    dependent: :destroy
   has_many :books,    ->{ order('created_at desc') }
   has_many :storages, ->{ order('created_at desc') }
+  has_many :impressions
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
