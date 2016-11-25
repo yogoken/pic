@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  title        :string(255)      not null
+#  image        :string(255)      default(""), not null
+#  author       :string(255)      default(""), not null
+#  manufacturer :string(255)      default(""), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  url          :text(65535)
+#
+
 class Book < ApplicationRecord
   belongs_to :user
   has_many :impressions, ->{ order('created_at desc') }

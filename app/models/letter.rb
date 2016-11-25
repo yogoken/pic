@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: letters
+#
+#  id             :integer          not null, primary key
+#  title          :string(255)
+#  image          :string(255)
+#  url            :string(255)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  comments_count :integer          default(0)
+#  site_name      :string(255)
+#
+
 class Letter < ApplicationRecord
   has_many :comments, ->{ order("likes_count desc") }, dependent: :destroy
   has_many :storages
