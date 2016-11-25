@@ -1,11 +1,12 @@
 .footer {
+  margin: 100px;
   width: 100%;
-  height: 50px;
-  min-width: 800px;
+  height: 100px;
+  min-width: 100%;
   background-color: #EFEFEF;
   color: #999;
   &__copyright {
     text-align: center;
-    line-height: 50px;
+    line-height: 100px;
   }
 }

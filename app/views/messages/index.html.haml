@@ -1,17 +1,11 @@
 .chat
-  .chat-side
-  .chat-main
-    .chat-header.clearfix
-      .chat-header--left
+  .chat__side
+  .chat__main
+    .chat__main__header
+      .chat__main__header-left
         %h2 チャットグループ名
-        %p.chat-header__users
+        %p.chat__main__header__users
           Members: メンバー
-  .chat-body
-    %ul.chat-messages
-      - @messages.each do |message|
-        %li.chat-message
-          .chat-message__header.clearfix
-            %p.chat-message__time
-              = message.created_at
-            %p.chat-message__body
-              = message.body
+  .chat__body
+    %ul.chat__body__messages
+      = render partial: 'message', collection: @messages
