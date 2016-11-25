@@ -1,0 +1,17 @@
+.chat
+  .chat-side
+  .chat-main
+    .chat-header.clearfix
+      .chat-header--left
+        %h2 チャットグループ名
+        %p.chat-header__users
+          Members: メンバー
+  .chat-body
+    %ul.chat-messages
+      - @messages.each do |message|
+        %li.chat-message
+          .chat-message__header.clearfix
+            %p.chat-message__time
+              = message.created_at
+            %p.chat-message__body
+              = message.body
