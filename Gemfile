@@ -18,6 +18,20 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+
+  # test
+  gem 'autodoc'
+  gem 'capybara'
+  gem 'capybara-email'
+  gem 'database_cleaner'
+  gem "factory_girl_rails"
+  gem 'poltergeist'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'rspec-request_describer'
+  gem 'guard-rspec'
+  gem 'rspec-power_assert'
+  gem 'faker'
 end
 
 group :development do
