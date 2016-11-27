@@ -15,4 +15,5 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy]
     end
   end
+  get 'admin' => 'dashboards#dashboard_1'
 end
