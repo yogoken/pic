@@ -1,0 +1,108 @@
+%nav.navbar-default.navbar-static-side{:role => "navigation"}
+  .sidebar-collapse
+    %ul#side-menu.nav.metismenu
+      %li.nav-header
+        .dropdown.profile-element
+          %span
+            %img.img-circle{:alt => "image", :src => "#{image_url 'profile_small.jpg'}"}/
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %span.clear
+              %span.block.m-t-xs
+                %strong.font-bold David Williams
+              %span.text-muted.text-xs.block
+                Art Director
+                %b.caret
+          %ul.dropdown-menu.animated.fadeInRight.m-t-xs
+            %li
+              %a{:href => ""} Profile
+            %li
+              %a{:href => ""} Contacts
+            %li
+              %a{:href => ""} Mailbox
+            %li.divider
+            %li
+              %a{:href => ""} Logout
+        .logo-element
+          IN+
+        %a{:href => ""}
+          %i.fa.fa-th-large
+          %span.nav-label{"data-i18n" => "nav.dashboard"} Dashboards
+          %span.fa.arrow
+          %i.fa.fa-diamond
+          %span.nav-label{"data-i18n" => "nav.layouts"} Layouts
+          %span.label.label-primary.pull-right NEW
+        %a{:href => "#"}
+          %i.fa.fa-bar-chart-o
+          %span.nav-label{"data-i18n" => "nav.graphs"} Graphs
+          %span.fa.arrow
+        %a{:href => "#"}
+          %i.fa.fa-envelope
+          %span.nav-label{"data-i18n" => "nav.mailbox"} Mailbox
+          %span.label.label-warning.pull-right 16/24
+          %i.fa.fa-pie-chart
+          %span.nav-label{"data-i18n" => "nav.metrics"} Metrics
+          %i.fa.fa-flask
+          %span.nav-label{"data-i18n" => "nav.widgets"} Widgets
+        %a{:href => "#"}
+          %i.fa.fa-edit
+          %span.nav-label{"data-i18n" => "nav.forms"} Forms
+          %span.fa.arrow
+        %a{:href => "#"}
+          %i.fa.fa-desktop
+          %span.nav-label{"data-i18n" => "nav.appviews"} App Views
+          %span.pull-right.label.label-primary SPECIAL
+        %a{:href => "#"}
+          %i.fa.fa-files-o
+          %span.nav-label{"data-i18n" => "nav.otherpages"} Other Pages
+          %span.fa.arrow
+        %a{:href => "#"}
+          %i.fa.fa-globe
+          %span.nav-label{"data-i18n" => "nav.miscellaneous"} Miscellaneous
+          %span.label.label-info.pull-right NEW
+        %a{:href => "#"}
+          %i.fa.fa-flask
+          %span.nav-label{"data-i18n" => "nav.uielements"} UI Elements
+          %span.fa.arrow
+          %i.fa.fa-laptop
+          %span.nav-label{"data-i18n" => "nav.gridoptions"} Grid options
+        %a{:href => "#"}
+          %i.fa.fa-table
+          %span.nav-label{"data-i18n" => "nav.tables"} Tables
+          %span.fa.arrow
+        %a{:href => "#"}
+          %i.fa.fa-shopping-cart
+          %span.nav-label{"data-i18n" => "nav.ecommerce"} E-commerce
+          %span.fa.arrow
+        %a{:href => "#"}
+          %i.fa.fa-picture-o
+          %span.nav-label{"data-i18n" => "nav.gallery"} Gallery
+          %span.fa.arrow
+      %li
+        %a{:href => "#"}
+          %i.fa.fa-sitemap
+          %span.nav-label{"data-i18n" => "nav.menulevels"} Menu Levels
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li
+            %a{:href => "#"}
+              Third Level
+              %span.fa.arrow
+            %ul.nav.nav-third-level
+              %li
+                %a{:href => "#"} Third Level Item
+              %li
+                %a{:href => "#"} Third Level Item
+              %li
+                %a{:href => "#"} Third Level Item
+          %li
+            %a{:href => "#"} Second Level Item
+          %li
+            %a{:href => "#"} Second Level Item
+          %li
+            %a{:href => "#"} Second Level Item
+          %i.fa.fa-magic
+          %span.nav-label{"data-i18n" => "nav.animations"} CSS Animations
+          %span.label.label-info.pull-right 62
+      %li.landing_link
+        %i.fa.fa-star
+        %span.nav-label{"data-i18n" => "nav.landing"} Landing page

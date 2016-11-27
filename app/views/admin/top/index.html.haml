@@ -1,0 +1,90 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TECH::SHARE
+    = csrf_meta_tags
+    = stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'true'
+    = javascript_include_tag 'admin', 'data-turbolinks-track': 'true'
+  %div a
+  %div a
+  %div a
+  %div TECH::SHARE admin画面
+  %body
+    - if @admin == 1
+      %aside#aside.app-aside.hidden-xs.bg-dark
+        .aside-wrap
+          .navi-wrap
+            #aside-user.clearfix.hidden-xs.text-center.hide
+              .dropdown.wrapper
+                %span.thumb-lg.w-auto-folded.avatar.m-t-sm
+                %span.clear
+                  %span.block.m-t-sm
+            %nav.navi.clearfix{"ui-nav" => ""}
+              %ul.nav
+                %li
+                  %ul.nav.nav-sub.dk
+                    %li.nav-sub-header
+                      %a
+                        %span Curriculum
+                    %li
+                      = link_to '一覧'
+                    %li
+                      = link_to 'グループ'
+                    %li
+                      = link_to 'カリキュラムセクション'
+                    %li
+                      = link_to 'コース'
+                    %li
+                      %a{:href => "/admin/curriculums/calendars"}
+                        %span カリキュラムカレンダー
+                %li
+                  %a.auto{:href => ""}
+                    %span.pull-right.text-muted
+                      %i.fa.fa-fw.fa-angle-right.text
+                      %i.fa.fa-fw.fa-angle-down.text-active
+                    %i.glyphicon.glyphicon-book
+                    %span.font-bold Locations
+                  %ul.nav.nav-sub.dk
+                    %li.nav-sub-header
+                      %a
+                        %span Locations
+                    %li
+                      = link_to '一覧'
+                %li
+                  %a{:href => "/admin/lessons"}
+                    %i.glyphicon.glyphicon-book
+                    %span.font-bold Lesson
+                %li
+                  %a{:href => "/admin/users"}
+                    %span.pull-right.text-muted
+                      %i.fa.fa-fw.fa-angle-right.text
+                      %i.fa.fa-fw.fa-angle-down.text-active
+                    %i.glyphicon.glyphicon-user
+                    %span.font-bold Users
+                  %ul.nav.nav-sub.dk
+                    %li.nav-sub-header
+                      %a
+                        %span Users
+                      = link_to '一覧'
+                  %a{:href => "/admin/knowledges"}
+                    %i.glyphicon.glyphicon-list-alt
+                    %span.font-bold Knowledges
+                %li
+                  %a
+                    %span.pull-right.text-muted
+                      %i.fa.fa-fw.fa-angle-right.text
+                      %i.fa.fa-fw.fa-angle-down.text-active
+                    %i.fa.fa-users
+                    %span.font-bold Mentors
+                  %ul.nav.nav-sub.dk
+                    %li.nav-sub-header
+                      %a
+                        %span Mentors
+                    / %li
+                    /   = link_to 'メンター一覧', admin_mentors_path
+                    / %li
+                    /   = link_to 'スキル別メンター一覧', admin_mentors_skills_path
+                    / %li
+                    /   = link_to 'スキル一覧', admin_skills_path
+
