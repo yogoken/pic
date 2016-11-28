@@ -9,3 +9,10 @@
   .chat__body
     %ul.chat__body__messages
       = render partial: 'message', collection: @messages
+  .chat__footer
+    = form_for @message do |f|
+      .chat__footer__body
+        = f.text_area :body, row: 1, placeholder: 'type a message'
+        %label.chat__footer__file
+          = f.file_field :image
+        = f.submit 'Send'
