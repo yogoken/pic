@@ -9,8 +9,6 @@ class MessagesController < ApplicationController
     @messages = Message.all
     if @message.save
       redirect_to messages_path, notice: 'return message successfully'
-      flash[:alert] = @message.errors.full_messages.join(',')
-      render :index
     end
   end
 
