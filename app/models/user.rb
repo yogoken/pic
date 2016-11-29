@@ -27,6 +27,9 @@ class User < ApplicationRecord
   has_many :books,    ->{ order('created_at desc') }
   has_many :storages, ->{ order('created_at desc') }
   has_many :impressions
+  has_many :messages
+  has_many :chat_groups, through: :chat_group_users
+  has_many :chat_group_users
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
