@@ -1,18 +1,25 @@
 class MessagesController < ApplicationController
+  before_action :set_chat_group
+
   def index
     @message  = Message.new
-    @messages = Message.all
+    @messages = @chat_group.messages
   end
 
   def create
     @message = Message.new(message_params)
-    @messages = Message.all
     if @message.save
-      redirect_to messages_path, notice: 'return message successfully'
+      redirect_to chat_group_messages_path(@chat_group), notice: 'メッセージを送信しました。'
+    else
+      redirect_to chat_group_messages_path(@chat_group), notice: 'メッセージを送信することができませんでした。'
     end
   end
 
   private
+
+  def set_chat_group
+    @chat_group = ChatGroup.find(params[:chat_group_id])
+  end
 
   def message_params
     params.require(:message).permit(:body)
