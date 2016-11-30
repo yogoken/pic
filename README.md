@@ -2,7 +2,8 @@
 ## 1, サービス名
 TECH::SHARE (http://52.199.29.59/)
 
-[![https://gyazo.com/8e42d22deb4aab7d45a66bc37cee7820](https://i.gyazo.com/8e42d22deb4aab7d45a66bc37cee7820.png)](https://gyazo.com/8e42d22deb4aab7d45a66bc37cee7820)
+[![https://gyazo.com/706186721209eea10dce87176d89fb5c](https://i.gyazo.com/706186721209eea10dce87176d89fb5c.png)](https://gyazo.com/706186721209eea10dce87176d89fb5c)
+
 #### 1-1 コンセプト
 - TECH::CAMPのメンター200名が日々学んだことや参考にしているサイトを投稿し、他のメンターが何日々見ているのかを視覚化し、意見場を設ける
 
