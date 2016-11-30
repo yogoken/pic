@@ -1,13 +1,15 @@
 .chat__user
   %h5= current_user.nickname
   .chat__user__actions
-    = link_to 'new_chat_group_path', root_path, class: 'chat__user__action'
-  .chat__user__actions
-    = link_to 'edit_user_registration_path', root_path, class: 'chat__user__action'
+    %a.chat__user__action{ href: new_chat_group_path }
+      a
+    %a.chat__user__action{ href: edit_user_registration_path }
+      b
+
 %ul.chat__groups
-  - current_user.chat__groups.each do |chat_group|
+  - current_user.chat_groups.each do |chat_group|
     %li.chat__groups
-      = link_to chat_group_messages_path(chat_group), class: 'chat__group__link'
+      %a.chat__group__link{ href: chat_group_messages_path(chat_group) }
         %p.chat__group__name = chat_group.name
         %p.chat__group__message
           - if last_message = chat_group.messages.last

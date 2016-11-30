@@ -1,0 +1,38 @@
+= form_for @chat_group do |f|
+  - if @chat_group.errors.any?
+    .chat-group-form__errors
+      %h2= "#{pluralize(@chat_group.errors.count, "error")} prohibited this chat_group from being saved:"
+      %ul
+        - @chat_group.errors.full_messages.each do |msg|
+          %li= msg
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, 'グループ名', class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      = f.text_field :name, class: 'chat-group-form__input', placeholder: 'グループ名を入力してください'
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      .chat-group-form__search.clearfix
+        %input#user-search-field.chat-group-form__input{ type: "text", placeholder: '追加したいユーザー名を入力してください' }
+      #user-search-result
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label 'チャットメンバー', class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      #chat-group-users
+        - @chat_group.users.each do |user|
+          .chat-group-user.clearfix{ id: "chat-group-user-#{user.id}" }
+            %input{ type: "hidden", name: "chat_group[user_ids][]", value: user.id }
+            %p.chat-group-user__name= user.name
+            - unless user.id == current_user.id
+              %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove{ 'data-user-id': user.id } 削除
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      = f.submit 'Save', class: 'chat-group-form__action-btn'
