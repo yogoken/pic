@@ -1,0 +1,19 @@
+.chat
+  .chat__side
+    = render partial: 'side_menu'
+  .chat__main
+    .chat__main__header
+      .chat__main__header-left
+        %h2 チャットグループ名
+        %p.chat__main__header__users
+          Members: メンバー
+  .chat__body
+    %ul.chat__body__messages
+      = render partial: 'message', collection: @messages
+  .chat__footer
+    = form_for @message do |f|
+      .chat__footer__body
+        = f.text_area :body, row: 1, placeholder: 'type a message'
+        %label.chat__footer__file
+          = f.file_field :image
+        = f.submit 'Send'

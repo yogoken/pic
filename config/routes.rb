@@ -15,4 +15,7 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy]
     end
   end
+  resources :chat_groups, only: [:index, :new, :edit, :create, :update] do
+    resources :messages, only: [:index, :create]
+  end
 end
