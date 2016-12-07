@@ -2,6 +2,10 @@
 ## 1, サービス名
 TECH::SHARE (http://52.199.29.59/)
 
+[test用アカウント]
+email: qwerty@gmail.com
+pass: qwerty
+
 [![https://gyazo.com/706186721209eea10dce87176d89fb5c](https://i.gyazo.com/706186721209eea10dce87176d89fb5c.png)](https://gyazo.com/706186721209eea10dce87176d89fb5c)
 
 #### 1-1 コンセプト
@@ -15,6 +19,7 @@ TECH::SHARE (http://52.199.29.59/)
 
 #### 1-5 見本サイト
 - https://newspicks.com/
+
 
 
 ## 2, 見積り工数
@@ -94,3 +99,4 @@ TECH::SHARE (http://52.199.29.59/)
 - 関連
   - `belongs_to :user`
   - `belongs_to :comment`
+
