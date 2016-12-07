@@ -99,4 +99,3 @@ pass: qwerty
 - 関連
   - `belongs_to :user`
   - `belongs_to :comment`
-
