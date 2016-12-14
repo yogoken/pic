@@ -1,0 +1,33 @@
+.wrapper-md
+  .panel.panel-default.content
+    .admin
+      = form_for([:admin, user]) do |f|
+        .sign-set
+          .form-group.row
+            .col-xs-3
+              = f.label :nickname, :ニックネーム
+            .col-xs-9
+              = f.text_field :nickname, required: true, placeholder: '(必須)'
+          .form-group.row
+            .col-xs-3
+              = f.label :password, :パスワード
+            .col-xs-9
+              = f.text_field :password, placeholder: '(必須)'
+          .form-group.row
+            .col-xs-3
+              = f.label :email, :メールアドレス
+            .col-xs-9
+              = f.text_field :email, placeholder: '(必須)'
+          .form-group.row
+            .col-xs-3
+              = f.label :avatar, :画像
+            .col-xs-9
+              = f.file_field :avatar
+          .form-group.row
+            .col-xs-3
+              = f.label :admin, '権限 ( ☑︎あり→ 管理者 or ☑︎なし→ 利用者 )'
+            .col-xs-9
+              = f.check_box :admin
+          .submit
+            .action
+              = f.submit submit_message, class: 'container__right-top__new-user__btn'

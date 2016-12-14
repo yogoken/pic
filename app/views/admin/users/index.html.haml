@@ -1,10 +1,8 @@
 .container
-  .container__sidebar-container
-    .container__sidebar-container__sidebar-block
-      = link_to 'ユーザー一覧', admin_users_path, class: 'container__sidebar-container__sidebar-block__font'
-
   .container__right-top
     .container__right-top__name
-      ユーザー名
+      ユーザー名簿
+    .container__right-top__new-user
+      = link_to 'ユーザー新規登録', new_admin_user_path, class: 'container__right-top__new-user__btn'
     .container__right-top__user-info
       = render partial: 'user', collection: @users
