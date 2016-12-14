@@ -1,0 +1,44 @@
+.container {
+  @include clearfix();
+  overflow-x: hidden;
+  padding-top: 50px;
+  width: 100%;
+  height: 100%;
+  min-height: 630px;
+  background-color: #BDC0BA;
+  &__sidebar-container {
+    @include clearfix();
+    margin: 20px 0;
+    padding-top: 28px;
+    &__sidebar-block {
+      margin: 0 auto;
+      width: 950px;
+      &__font {
+        line-height: 25px;
+        color: #434343;
+        font-size: 20px;
+        font-family: "Hiragino Kaku Gothic Pro Pro";
+      }
+    }
+  }
+  &__right-top {
+    float: center;
+    &__name {
+      font-size: 20px;
+    }
+    &__user-info {
+      padding-top: 40px;
+      font-size: 20px;
+    }
+    &__user-table {
+      margin: 10px;
+      padding: 10px;
+      border-collapse: separate;
+      border-spacing: 0;
+      text-align: left;
+      line-height: 1.5;
+      border-top: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+    }
+  }
+}

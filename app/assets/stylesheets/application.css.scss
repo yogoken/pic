@@ -1,4 +1,5 @@
-@import "./admin/index";
+@import './mixin/clearfix';
+@import './reset';
 
 @import "./books/index";
 @import "./books/new";
@@ -11,8 +12,6 @@
 
 @import './flash/flash';
 
-@import './mixin/clearfix';
-
 @import './letters/index';
 @import './letters/new';
 @import './letters/show';
@@ -23,4 +22,4 @@
 @import './users/show';
 @import './users/edit';
 
-@import './reset';
+@import './admin/reports/index';
