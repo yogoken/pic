@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   resources :chat_groups, only: [:index, :new, :edit, :create, :update] do
     resources :messages, only: [:index, :create]
   end
+  get 'admin' => 'admin/reports#index'
+  namespace :admin do
+    resources :users
+  end
 end

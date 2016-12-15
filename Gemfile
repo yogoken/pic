@@ -32,6 +32,8 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rspec-power_assert'
   gem 'faker'
+  gem 'launchy'
+  gem 'rails-controller-testing'
 end
 
 group :development do

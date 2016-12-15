@@ -1,0 +1,9 @@
+.tr
+  .td 
+    = user.id 
+    = user.email
+    = user.updated_at.strftime('%-m月%-d日')
+    = user.nickname
+    = user.avatar ? '画像あり' : '画像なし'
+    = user.admin == 1 ? '管理者' : '利用者'
+    = link_to '削除', admin_user_path(user), class: 'container__right-top__new-user__delete-btn', method: :delete, data: { confirm: '本当に削除していいですか？' }
