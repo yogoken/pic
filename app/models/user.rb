@@ -36,6 +36,10 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  validates :nickname, presence: true, length:     { maximum: 15 }
+  validates :email,    presence: true, uniqueness: { case_sensitive: true }
+  validates :password, presence: true, length:     { minimum: 6 }
+
   def user_letters
     letters = []
     self.comments.each do |comment|
