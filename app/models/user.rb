@@ -36,6 +36,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  validates_presence_of :nickname, :email
+
   def user_letters
     letters = []
     self.comments.each do |comment|
