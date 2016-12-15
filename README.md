@@ -6,7 +6,7 @@ TECH::SHARE (http://52.199.29.59/)
 email: qwerty@gmail.com
 pass: qwerty
 
-[![https://gyazo.com/706186721209eea10dce87176d89fb5c](https://i.gyazo.com/706186721209eea10dce87176d89fb5c.png)](https://gyazo.com/706186721209eea10dce87176d89fb5c)
+[![https://gyazo.com/653f5616f15d810d5a27e1dd3209061d](https://i.gyazo.com/653f5616f15d810d5a27e1dd3209061d.png)](https://gyazo.com/653f5616f15d810d5a27e1dd3209061d)
 
 #### 1-1 コンセプト
 - TECH::CAMPのインターン生200名が日々学んだことや参考にしているサイトを投稿し、他のメンターが日々何を見ているのかを視覚化し、意見場を設ける
