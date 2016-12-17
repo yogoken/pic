@@ -22,7 +22,7 @@
 
 
     .container__contents-container__news-comment
-      - if user_signed_in? && @letter.commented_by?(current_user).nil?
+      - if user_signed_in? && @letter.commented_by(current_user).nil?
         .container__contents-container__news-comment__pick-editor
           .container__contents-container__news-comment__pick-editor__cover
             = image_tag current_user.avatar.presence || 'default_avatar.jpeg', class: "container__contents-container__news-comment__pick-editor__cover__avatar"

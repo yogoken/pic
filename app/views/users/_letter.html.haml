@@ -21,7 +21,7 @@
           = letter.comments.first.user.nickname.presence || "No name"
   = link_to letter_path(letter), class: "container__letter-container__letter-block__individual-letter__user-comment" do
     %p
-      = letter.commented_by?(letter.comments.first.user).content.truncate(53).presence || "No comment"
+      = letter.commented_by(letter.comments.first.user).content.truncate(53).presence || "No comment"
 
   .container__letter-container__letter-block__individual-letter__pickers
     - if letter.comments.length > 0

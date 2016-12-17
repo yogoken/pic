@@ -19,7 +19,7 @@ class Letter < ApplicationRecord
   validates :url, format: URI::regexp(%w(http https))
   paginates_per 12
 
-  def commented_by?(user)
+  def commented_by(user)
     comments.find_by(user_id: user.id)
   end
 
