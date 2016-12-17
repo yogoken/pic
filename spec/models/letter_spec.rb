@@ -38,6 +38,28 @@ describe Letter do
     end
   end
 
+  describe '#created_in_24hours?' do
+    context 'when created within 24 hours' do
+      it 'return true' do
+        letter = create(:letter, created_at: Time.now)
+        expect(letter.created_in_24hours?).to be_truthy
+      end
+    end
+    context 'when created after 24 hours' do
+      it 'return false' do
+        letter = create(:letter, created_at: Time.zone.yesterday)
+        expect(letter.created_in_24hours?).to be_nil
+      end
+    end
+  end
+
+  describe '#created_time' do
+    it 'return 2016年12月18日' do
+      letter = create(:letter, created_at: 'Sun, 18 Dec 2016 12:34:56 UTC +00:00')
+      expect(letter.created_time).to eq '2016年12月18日'
+    end
+  end
+
   describe '#best_seven_comments' do
     it 'returns 7 comments records' do
       letter = create(:letter)
