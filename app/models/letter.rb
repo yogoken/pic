@@ -14,7 +14,7 @@
 
 class Letter < ApplicationRecord
   has_many :comments, ->{ order("likes_count desc") }, dependent: :destroy
-  has_many :storages
+  has_many :storages, dependent: :destroy
 
   validates :url, format: URI::regexp(%w(http https))
   paginates_per 12
