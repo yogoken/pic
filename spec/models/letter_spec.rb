@@ -37,4 +37,22 @@ describe Letter do
       end
     end
   end
+
+  describe '#best_seven_comments' do
+    it 'returns 7 comments records' do
+      letter = create(:letter)
+      comment = create(:comment, letter: letter)
+      expect(letter.best_seven_comments).to be_truthy
+    end
+  end
+
+  describe '#create_letter' do
+    it 'create a new letter' do
+      letter = create(:letter)
+      # set stub on letter.create_letter
+      allow(letter).to receive(:create_letter).and_return(create(:letter))
+      letter.create_letter
+      expect(letter).to have_received(:create_letter)
+    end
+  end
 end
