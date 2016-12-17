@@ -4,8 +4,10 @@ RSpec.describe LettersController, type: :controller do
   let!(:user) { create(:user) }
   let!(:letter) { create(:letter) }
   let!(:valid_params) {{
-    letter: attributes_for(:letter, url: 'http://www3.nhk.or.jp/news/html/20161216/k10010810081000.html'),
-    url_params: 'https://newspicks.com/news/1939707'
+    url: 'http://www3.nhk.or.jp/news/html/20161216/k10010810081000.html'
+  }}
+  let!(:invalid_params) {{
+    url: 'http://www.newsweekjapan.jp/stories/world/2016/12/post-6558.php'
   }}
 
   before do
@@ -31,31 +33,35 @@ RSpec.describe LettersController, type: :controller do
   end
 
   describe 'POST #create' do
-    before do
-      post :create, letter: valid_params
-    end
-    
-    describe 'with valid_params' do
-      it 'saves the new letter in the database' do
+    context 'with valid attributes' do
+      it 'saves the new letter' do
         expect {
-          post :create, id: letter
+          post :create, valid_params
         }.to change(Letter, :count).by(1)
       end
 
-      it 'redirects to letter_path(user)' do
+      it 'redirect_to letter_path' do
         expect(response).to redirect_to letter_path(user)
+      end
+
+      it 'show a flash message, success to create letter' do
+        expect(flash[:notice]).to eq '投稿に成功しました'
       end
     end
 
-    describe 'with invalid_params' do
-      it "doesn't save the new letter in the database" do
+    context 'with invalid attributes' do
+      it "doesn't save a new letter" do
         expect {
-          post :create, id: letter
-        }.to change(Letter, :count).by(0)
+          post :create, invalid_params
+        }.not_to change(Letter, :count)
       end
 
       it 'redirects to root_path' do
         expect(response).to redirect_to root_path
+      end
+
+      it 'show a flash message, failed to create letter' do
+        expect(flash[:alert]).to eq '投稿に失敗しました'
       end
     end
   end

@@ -10,7 +10,6 @@ class LettersController < ApplicationController
   end
 
   def create
-    binding.pry
     @letters = Letter.order('created_at desc')
     unless @letters.pluck(:url).include?(url_params[:url])
       letter = Letter.new(url_params)
