@@ -22,17 +22,17 @@ describe Letter do
     describe 'when commented by a user' do
       it 'return true' do
         user = create(:user)
-        letter = create(:letter)
+        letter = build(:letter)
         comment = create(:comment, letter: letter, user: user)
         expect(letter.commented_by?(user)).to be_truthy
       end
     end
     describe 'when not commented by a user' do
       it 'return nil' do
-        user = create(:user)
-        another_user = create(:user)
-        letter = create(:letter)
-        comment = create(:comment, letter: letter, user: another_user)
+        user = build(:user)
+        another_user = build(:user)
+        letter = build(:letter)
+        comment = build(:comment, letter: letter, user: another_user)
         expect(letter.commented_by?(user)).to be_falsey
       end
     end
@@ -41,13 +41,13 @@ describe Letter do
   describe '#created_in_24hours?' do
     context 'when created within 24 hours' do
       it 'return true' do
-        letter = create(:letter, created_at: Time.now)
+        letter = build(:letter, created_at: Time.now)
         expect(letter.created_in_24hours?).to be_truthy
       end
     end
     context 'when created after 24 hours' do
       it 'return false' do
-        letter = create(:letter, created_at: Time.zone.yesterday)
+        letter = build(:letter, created_at: Time.zone.yesterday)
         expect(letter.created_in_24hours?).to be_nil
       end
     end
@@ -55,24 +55,24 @@ describe Letter do
 
   describe '#created_time' do
     it 'return 2016年12月18日' do
-      letter = create(:letter, created_at: 'Sun, 18 Dec 2016 12:34:56 UTC +00:00')
+      letter = build(:letter, created_at: 'Sun, 18 Dec 2016 12:34:56 UTC +00:00')
       expect(letter.created_time).to eq '2016年12月18日'
     end
   end
 
   describe '#best_seven_comments' do
     it 'returns 7 comments records' do
-      letter = create(:letter)
-      comment = create(:comment, letter: letter)
+      letter = build(:letter)
+      comment = build(:comment, letter: letter)
       expect(letter.best_seven_comments).to be_truthy
     end
   end
 
   describe '#create_letter' do
     it 'create a new letter' do
-      letter = create(:letter)
+      letter = build(:letter)
       # set stub on letter.create_letter
-      allow(letter).to receive(:create_letter).and_return(create(:letter))
+      allow(letter).to receive(:create_letter).and_return(build(:letter))
       letter.create_letter
       expect(letter).to have_received(:create_letter)
     end
