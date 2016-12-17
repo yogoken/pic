@@ -17,4 +17,24 @@ describe Letter do
       end
     end
   end
+
+  describe '#commented_by?(user)' do
+    describe 'when commented by a user' do
+      it 'return true' do
+        user = create(:user)
+        letter = create(:letter)
+        comment = create(:comment, letter: letter, user: user)
+        expect(letter.commented_by?(user)).to be_truthy
+      end
+    end
+    describe 'when not commented by a user' do
+      it 'return nil' do
+        user = create(:user)
+        another_user = create(:user)
+        letter = create(:letter)
+        comment = create(:comment, letter: letter, user: another_user)
+        expect(letter.commented_by?(user)).to be_falsey
+      end
+    end
+  end
 end

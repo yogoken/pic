@@ -19,7 +19,7 @@ class Letter < ApplicationRecord
   validates :url, format: URI::regexp(%w(http https))
   paginates_per 12
 
-  def user_comment(user)
+  def commented_by?(user)
     comments.find_by(user_id: user.id)
   end
 
@@ -35,10 +35,6 @@ class Letter < ApplicationRecord
   def created_time
     d = self.created_at
     "#{d.year}年#{d.month}月#{d.day}日"
-  end
-
-  def user_comment(user)
-    comments.find_by(user_id: user.id)
   end
 
   def max_like_user
