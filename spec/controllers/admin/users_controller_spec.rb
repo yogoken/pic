@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::UsersController, type: :controller do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
   let(:valid_params) {{
     id: user.id,
     user: attributes_for(:user, nickname: 'hoge')

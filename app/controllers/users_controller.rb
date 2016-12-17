@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_user, except: :index
+  before_action :authenticate_user!, only: %i(edit update)
+  before_action :set_user, only: %i(show edit update)
 
   def index
     @users = User.all
@@ -11,21 +11,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if current_user != @user
-      redirect_to root_path
-    end
   end
 
   def update
-    if current_user == @user
-      if @user.update(update_params)
-        flash[:notice] = "ユーザー情報の編集に成功しました。"
-      else
-        flash[:alert] = "ユーザー情報の編集に失敗しました。"
-      end
-      redirect_to :back
+    if @user.update(user_params)
+      redirect_to root_path, notice: 'ユーザー情報の編集に成功しました。'
     else
-      redirect_to root_path
+      redirect_to edit_user_path, alert: 'ユーザー情報の編集に失敗しました。'
     end
   end
 
@@ -35,7 +27,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def update_params
-    params.require(:user).permit(:nickname, :avatar)
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      :avatar
+    )
   end
 end
