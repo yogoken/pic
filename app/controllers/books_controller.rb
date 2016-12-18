@@ -23,7 +23,7 @@ class BooksController < ApplicationController
       redirect_to user_book_path(current_user, book)
     else
       flash[:alert] = "おすすめ本の投稿に失敗しました"
-      redirect_to :back
+      redirect_to new_user_book_path
     end
   end
 
