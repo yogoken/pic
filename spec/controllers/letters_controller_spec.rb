@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe LettersController, type: :controller do
   let!(:user)   { create(:user) }
   let!(:letter) { create(:letter) }
+  let(:comment) { create(:comment) }
   let(:valid_params) {{
     url: 'http://www3.nhk.or.jp/news/html/20161216/k10010810081000.html'
   }}
@@ -12,10 +13,14 @@ RSpec.describe LettersController, type: :controller do
 
   before { sign_in user }
 
+  shared_examples_for '2tests' do |template|
+    it { expect(response.status).to eq 200 }
+    it { expect(response).to render_template template }
+  end
+
   describe 'GET #index' do
     before { get :index }
-    it { expect(response.status).to eq 200 }
-    it { expect(response).to render_template :index }
+    it_behaves_like '2tests', :index
     it { expect(assigns(:letters)).to include letter }
   end
 
@@ -43,9 +48,10 @@ RSpec.describe LettersController, type: :controller do
 
   describe 'GET #show' do
     before { get :show, id: letter }
-    it { expect(response.status).to eq 200 }
-    it { expect(response).to render_template :show }
-    it { expect(assigns(:letter)).to eq letter }  
+    it_behaves_like '2tests', :show
+    it { expect(assigns(:letter)).to eq letter } 
+    it { expect(assigns(:comment)).to be_a_new(Comment) }
+    it { expect(assigns(:create_storage)).to be_a_new(Storage) }
   end
 
   describe 'DELETE #destroy' do
