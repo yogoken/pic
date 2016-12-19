@@ -44,6 +44,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'xray-rails'
+  gem 'pry-nav'
 end
 
 group :production, :staging do
