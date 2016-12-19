@@ -1,35 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe LettersController, type: :controller do
-  let!(:user) { create(:user) }
+  let!(:user)   { create(:user) }
   let!(:letter) { create(:letter) }
-  let!(:valid_params) {{
+  let(:valid_params) {{
     url: 'http://www3.nhk.or.jp/news/html/20161216/k10010810081000.html'
   }}
-  let!(:invalid_params) {{
-    url: 'http://www.newsweekjapan.jp/stories/world/2016/12/post-6558.php'
+  let(:invalid_params) {{
+    url: nil
   }}
 
-  before do
-    sign_in user
-  end
+  before { sign_in user }
 
   describe 'GET #index' do
-    before do
-      get :index
-    end
-
-    it 'assigns the requested letter to @letters' do
-      expect(assigns(:letters)).to include letter
-    end
-
-    it 'returns 200' do
-      expect(response.status).to eq 200
-    end
-
-    it 'render template :index template' do
-      expect(response).to render_template :index
-    end
+    before { get :index }
+    it { expect(response.status).to eq 200 }
+    it { expect(response).to render_template :index }
+    it { expect(assigns(:letters)).to include letter }
   end
 
   describe 'POST #create' do
@@ -39,14 +26,8 @@ RSpec.describe LettersController, type: :controller do
           post :create, valid_params
         }.to change(Letter, :count).by(1)
       end
-
-      it 'redirect_to letter_path' do
-        expect(response).to redirect_to letter_path(user)
-      end
-
-      it 'show a flash message, success to create letter' do
-        expect(flash[:notice]).to eq '投稿に成功しました'
-      end
+      it { expect(response).to redirect_to letter_path(user) }
+      it { expect(flash[:notice]).to eq '投稿に成功しました' }
     end
 
     context 'with invalid attributes' do
@@ -55,44 +36,27 @@ RSpec.describe LettersController, type: :controller do
           post :create, invalid_params
         }.not_to change(Letter, :count)
       end
-
-      it 'redirects to root_path' do
-        expect(response).to redirect_to root_path
-      end
-
-      it 'show a flash message, failed to create letter' do
-        expect(flash[:alert]).to eq '投稿に失敗しました'
-      end
+      it { expect(response).to redirect_to root_url }
+      it { expect(flash[:alert]).to eq '投稿に失敗しました' }
     end
   end
 
   describe 'GET #show' do
-    before do
-      get :show, id: letter.id
-    end
-
-    it 'assigns the requested letter to @letter' do
-      expect(assigns(:letter)).to eq letter
-    end
-
-    it 'renders the :show template' do
-      expect(response).to render_template :show
-    end
+    before { get :show, id: letter }
+    it { expect(response.status).to eq 200 }
+    it { expect(response).to render_template :show }
+    it { expect(assigns(:letter)).to eq letter }  
   end
 
   describe 'DELETE #destroy' do
-    before do
-      @letter = create(:letter)
-    end
-
     it 'deletes the letter' do
       expect{
-        delete :destroy, id: @letter
+        delete :destroy, id: letter
       }.to change(Letter, :count).by(-1)
     end
 
     it 'redirects to root_path' do
-      delete :destroy, id: @letter
+      delete :destroy, id: letter
       expect(response).to redirect_to root_url
     end
   end

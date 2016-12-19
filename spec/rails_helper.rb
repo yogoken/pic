@@ -16,7 +16,7 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
-  config.filter_rails_from_backtrace!
+  # config.filter_rails_from_backtrace!
   config.include FactoryGirl::Syntax::Methods
   # ↓deviseを使って人ん少雨しているコントローラーのテストを書くための準備
   config.include Devise::Test::ControllerHelpers, type: :controller

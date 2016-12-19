@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :letter do
     title { Faker::Name.name }
     image { Faker::Avatar.image }
-    url   'http://www.newsweekjapan.jp/stories/world/2016/12/post-6558.php'
+    url   { Faker::Internet.url}
     site_name { Faker::Name.name }
 
     # -------------------------------------------------------------------------------
