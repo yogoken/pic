@@ -30,9 +30,9 @@ RSpec.describe LettersController, type: :controller do
         expect {
           post :create, valid_params
         }.to change(Letter, :count).by(1)
+        expect(response).to redirect_to letter_path(Letter.last)
+        expect(flash[:notice]).to eq '投稿に成功しました'
       end
-      it { expect(response).to redirect_to letter_path(user) }
-      it { expect(flash[:notice]).to eq '投稿に成功しました' }
     end
 
     context 'with invalid attributes' do
@@ -40,9 +40,9 @@ RSpec.describe LettersController, type: :controller do
         expect {
           post :create, invalid_params
         }.not_to change(Letter, :count)
+        expect(response).to redirect_to root_url
+        expect(flash[:alert]).to eq '投稿に失敗しました'
       end
-      it { expect(response).to redirect_to root_url }
-      it { expect(flash[:alert]).to eq '投稿に失敗しました' }
     end
   end
 
