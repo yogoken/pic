@@ -66,16 +66,13 @@ describe Letter do
 
   describe '#best_seven_comments' do
     it 'returns 7 comments records' do
-      letter = build(:letter)
-      comment = build(:comment, letter: letter)
-      expect(letter.best_seven_comments).to be_truthy
+      letter = create(:letter, :with_seven_comments, comments_count: 7)
+      expect(letter.best_seven_comments.count).to eq 7
     end
   end
 
   describe '#create_letter' do
     it 'create a new letter' do
-      letter = build(:letter)
-      # set stub on letter.create_letter
       allow(letter).to receive(:create_letter).and_return(build(:letter))
       letter.create_letter
       expect(letter).to have_received(:create_letter)

@@ -19,6 +19,15 @@ FactoryGirl.define do
     # create(:letter, :with_comments, comments_length: 10).comments_length => 10
     # -------------------------------------------------------------------------------
 
+    trait :with_seven_comments do
+      transient do
+        comments_count 7
+      end
+      after(:create) do |letter, evaluator|
+        letter.comments << create_list(:comment, evaluator.comments_count)
+      end
+    end
+
     trait :with_comments do
       transient do
         comments_count 5
