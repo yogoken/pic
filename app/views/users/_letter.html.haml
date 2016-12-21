@@ -1,7 +1,7 @@
 .user-container__letter-container__individual-letter
   .user-container__letter-container__individual-letter__thumbnail
     = link_to letter_path(letter) do
-      = image_tag letter.image.presence || "default_letter_image.jpg", class: "user-container__letter-container__individual-letter__thumbnail__image"
+      = image_tag letter.image.present? || "default_letter_image.jpg", class: "user-container__letter-container__individual-letter__thumbnail__image"
       .user-container__letter-container__individual-letter__thumbnail__picks-box
         .user-container__letter-container__individual-letter__thumbnail__picks-box__cover
           .user-container__letter-container__individual-letter__thumbnail__picks-box__cover__size
@@ -10,24 +10,24 @@
             Picks
   .container__letter-container__letter-block__individual-letter__title
     %h2
-      = link_to letter.title.truncate(28).presence || "No title", letter_path(letter), class: "container__letter-container__letter-block__individual-letter__title__font"
+      = link_to letter.title.truncate(28).present? || "No title", letter_path(letter), class: "container__letter-container__letter-block__individual-letter__title__font"
 
   = link_to letter_path(letter), class: "container__letter-container__letter-block__individual-letter__user" do
     .container__letter-container__letter-block__individual-letter__user__thumbnail
-      = image_tag letter.comments.find_by(user_id: params[:id]).user.avatar.presence || "default_avatar.jpeg", class: "container__letter-container__letter-block__individual-letter__user__thumbnail__image"
+      = image_tag letter.comments.find_by(user_id: params[:id]).user.avatar.present? || "default_avatar.jpeg", class: "container__letter-container__letter-block__individual-letter__user__thumbnail__image"
     .container__letter-container__letter-block__individual-letter__user__info
       .container__letter-container__letter-block__individual-letter__user__info__name
         %h3
-          = letter.comments.first.user.nickname.presence || "No name"
+          = letter.comments.first.user.nickname.present? || "No name"
   = link_to letter_path(letter), class: "container__letter-container__letter-block__individual-letter__user-comment" do
     %p
-      = letter.comments_by(letter.comments.first.user).content.truncate(53).presence || "No comment"
+      = letter.comments_by(letter.comments.first.user).content.truncate(53).present? || "No comment"
 
   .container__letter-container__letter-block__individual-letter__pickers
     - if letter.comments.length > 0
       - letter.best_seven_comments.each do |comment|
         = link_to user_path(comment.user) do
-          = image_tag comment.user.avatar.presence || "image.jpeg", class: "container__letter-container__letter-block__individual-letter__pickers__individual-picker"
+          = image_tag comment.user.avatar.present? || "image.jpeg", class: "container__letter-container__letter-block__individual-letter__pickers__individual-picker"
 
   .container__letter-container__letter-block__individual-letter__sub-info
     .container__letter-container__letter-block__individual-letter__sub-info__publisher

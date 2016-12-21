@@ -1,7 +1,7 @@
 .user-container__user-box
   .user-container__user-box__user
     .user-container__user-box__user__left-info
-      = image_tag @user.avatar.presence || "default_avatar.jpeg", class: "user-container__user-box__user__left-info__avatar"
+      = image_tag @user.avatar.present? || "default_avatar.jpeg", class: "user-container__user-box__user__left-info__avatar"
     .user-container__user-box__user__right-info
       .user-container__user-box__user__right-info__name
         - if @user.nickname.present?
