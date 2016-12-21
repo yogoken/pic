@@ -61,9 +61,9 @@ RSpec.describe LettersController, type: :controller do
       }.to change(Letter, :count).by(-1)
     end
 
+    subject { delete :destroy, id: letter }
     it 'redirects to root_path' do
-      delete :destroy, id: letter
-      expect(response).to redirect_to root_url
+      is_expected.to redirect_to root_url
     end
   end
 end
