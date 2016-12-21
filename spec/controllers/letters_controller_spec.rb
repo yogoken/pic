@@ -13,14 +13,14 @@ RSpec.describe LettersController, type: :controller do
 
   before { sign_in user }
 
-  shared_examples_for '2tests' do |template|
+  shared_examples_for 'valid responses' do |template|
     it { expect(response.status).to eq 200 }
     it { expect(response).to render_template template }
   end
 
   describe 'GET #index' do
     before { get :index }
-    it_behaves_like '2tests', :index
+    it_behaves_like 'valid_responses', :index
     it { expect(assigns(:letters)).to include letter }
   end
 
@@ -48,7 +48,7 @@ RSpec.describe LettersController, type: :controller do
 
   describe 'GET #show' do
     before { get :show, id: letter }
-    it_behaves_like '2tests', :show
+    it_behaves_like 'valid_responses', :show
     it { expect(assigns(:letter)).to eq letter } 
     it { expect(assigns(:comment)).to be_a_new(Comment) }
     it { expect(assigns(:create_storage)).to be_a_new(Storage) }
