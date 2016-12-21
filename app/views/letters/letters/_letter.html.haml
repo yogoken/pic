@@ -39,4 +39,4 @@
       - if letter.created_in_24hours?
         = "#{time_ago_in_words(letter.created_at)}前"
       - else
-        = letter.created_time
+        = letter.created_time_with_format

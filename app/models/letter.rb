@@ -32,7 +32,7 @@ class Letter < ApplicationRecord
     end
   end
 
-  def created_time
+  def created_time_with_format
     d = self.created_at
     "#{d.year}年#{d.month}月#{d.day}日"
   end
