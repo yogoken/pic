@@ -21,7 +21,7 @@
       - if user_signed_in?
         .container__book-container__book-impression__block
           .container__book-container__book-impression__block__cover
-            = image_tag current_user.avatar.presence || "default_avatar.jpeg", class: "container__book-container__book-impression__block__cover__avatar"
+            = image_tag current_user.avatar.present? || "default_avatar.jpeg", class: "container__book-container__book-impression__block__cover__avatar"
           .container__book-container__book-impression__block__impression
             = form_for @impression, url: user_book_impressions_path(current_user, @book), method: :create do |f|
               = f.text_area :content, class: "container__book-container__book-impression__block__impression__form", placeholder: "感想を書く（任意）"
@@ -33,10 +33,10 @@
             .container__book-container__impressions__block__individual__user
               .container__book-container__impressions__block__individual__user__cover
                 = link_to user_path(impression.user) do
-                  = image_tag impression.user.avatar.presence || "default_avatar.jpeg", class: "container__book-container__impressions__block__individual__user__cover__avatar"
+                  = image_tag impression.user.avatar.present? || "default_avatar.jpeg", class: "container__book-container__impressions__block__individual__user__cover__avatar"
               .container__book-container__impressions__block__individual__user__info
                 .container__book-container__impressions__block__individual__user__info__name
-                  = link_to impression.user.nickname.presence || "No name", user_path(impression.user), class: "container__book-container__impressions__block__individual__user__info__name__font"
+                  = link_to impression.user.nickname.present? || "No name", user_path(impression.user), class: "container__book-container__impressions__block__individual__user__info__name__font"
                 .container__book-container__impressions__block__individual__user__info__created-at
                   = "#{time_ago_in_words impression.created_at}前"
               - if current_user == impression.user

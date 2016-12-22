@@ -14,12 +14,12 @@
 
 class Letter < ApplicationRecord
   has_many :comments, ->{ order("likes_count desc") }, dependent: :destroy
-  has_many :storages
+  has_many :storages, dependent: :destroy
 
   validates :url, format: URI::regexp(%w(http https))
   paginates_per 12
 
-  def user_comment(user)
+  def comments_by(user)
     comments.find_by(user_id: user.id)
   end
 
@@ -32,22 +32,9 @@ class Letter < ApplicationRecord
     end
   end
 
-  def created_time
+  def created_time_with_format
     d = self.created_at
     "#{d.year}年#{d.month}月#{d.day}日"
-  end
-
-  def user_comment(user)
-    comments.find_by(user_id: user.id)
-  end
-
-  def max_like_user
-    comment = comments.order("likes_count desc").first(1)[0]
-    if comment.nil?
-      nil
-    else
-      User.find(comment.user_id)
-    end
   end
 
   def best_seven_comments

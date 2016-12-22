@@ -20,4 +20,3 @@ class Comment < ActiveRecord::Base
     self.likes.find_by(user_id: user.id)
   end
 end
-

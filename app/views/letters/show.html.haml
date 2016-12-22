@@ -3,12 +3,12 @@
     .container__contents-container__contents-area
       .container__contents-container__contents-area__letter-image
         = link_to @letter.url, target: '_blank' do
-          = image_tag @letter.image.presence || 'yogoken.png', class: 'container__contents-container__contents-area__letter-image__thumbnail'
+          = image_tag @letter.image.present? || 'yogoken.png', class: 'container__contents-container__contents-area__letter-image__thumbnail'
       .container__contents-container__contents-area__letter-title
-        = link_to @letter.title.truncate(40).presence || "NO TITLE", @letter.url, class: "container__contents-container__contents-area__letter-title__font", target: "_blank"
+        = link_to @letter.title.truncate(40).present? || "NO TITLE", @letter.url, class: "container__contents-container__contents-area__letter-title__font", target: "_blank"
       .container__contents-container__contents-area__meta
         .container__contents-container__contents-area__meta__site-name
-          = @letter.site_name.truncate(12).presence || "No site name"
+          = @letter.site_name.truncate(12).present? || "No site name"
         .container__contents-container__contents-area__meta__time-ago
           = "#{time_ago_in_words(@letter.created_at)}前"
         .container__contents-container__contents-area__meta__storage
@@ -22,10 +22,10 @@
 
 
     .container__contents-container__news-comment
-      - if user_signed_in? && @letter.user_comment(current_user).nil?
+      - if user_signed_in? && @letter.comments_by(current_user).nil?
         .container__contents-container__news-comment__pick-editor
           .container__contents-container__news-comment__pick-editor__cover
-            = image_tag current_user.avatar.presence || 'default_avatar.jpeg', class: "container__contents-container__news-comment__pick-editor__cover__avatar"
+            = image_tag current_user.avatar.present? || 'default_avatar.jpeg', class: "container__contents-container__news-comment__pick-editor__cover__avatar"
           = form_for [@letter, @comment] , method: :create do |f|
             .container__contents-container__news-comment__pick-editor__comment
               = f.text_area :content, class: "container__contents-container__news-comment__pick-editor__comment__form", placeholder: "コメントを書く（任意）"
@@ -38,10 +38,10 @@
             .container__contents-container__news-comment__comments__individual__user
               .container__contents-container__news-comment__comments__individual__user__cover
                 = link_to user_path(comment.user) do
-                  = image_tag comment.user.avatar.presence || "image.jpeg", class: "container__contents-container__news-comment__comments__individual__user__cover__avatar"
+                  = image_tag comment.user.avatar.present? || "image.jpeg", class: "container__contents-container__news-comment__comments__individual__user__cover__avatar"
               .container__contents-container__news-comment__comments__individual__user__info
                 .container__contents-container__news-comment__comments__individual__user__info__name
-                  = link_to comment.user.nickname.presence || "No name", user_path(comment.user), class: "container__contents-container__news-comment__comments__individual__user__info__name__font"
+                  = link_to comment.user.nickname.present? || "No name", user_path(comment.user), class: "container__contents-container__news-comment__comments__individual__user__info__name__font"
                 .container__contents-container__news-comment__comments__individual__user__info__created-at
                   = time_ago_in_words comment.created_at
                 - if current_user == comment.user

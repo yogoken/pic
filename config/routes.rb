@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   scope module: :letters do
     resources :popular,  only: [:index]
   end
-  resources :letters, only: [:create, :show] do
+  resources :letters, only: [:create, :show, :destroy] do
     resources :comments, only: [:create, :destroy] do
       resources :likes, only: [:create, :destroy]
     end
