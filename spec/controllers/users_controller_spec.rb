@@ -11,10 +11,6 @@ RSpec.describe Admin::UsersController, type: :controller do
     user: attributes_for(:user, nickname: nil)
   }}
 
-  before do
-    http_login
-  end
-
   describe 'GET #index' do
     before do
       get :index
