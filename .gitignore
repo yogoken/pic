@@ -60,3 +60,6 @@ config/environments/*.local.yml
 *.gif
 /public/
 /shared/
+
+#ignore Spring files.
+/spring/*.pid
