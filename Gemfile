@@ -29,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'rspec-request_describer'
+  gem 'guard'
   gem 'guard-rspec'
   gem 'rspec-power_assert'
   gem 'faker'

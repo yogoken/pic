@@ -387,6 +387,7 @@ DEPENDENCIES
   erb2haml
   factory_girl_rails
   faker
+  guard
   guard-rspec
   haml-rails
   hirb
