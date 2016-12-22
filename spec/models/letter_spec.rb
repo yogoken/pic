@@ -72,7 +72,7 @@ describe Letter do
   end
 
   describe '#create_letter' do
-    it 'create a new letter' do
+    it 'receive create_letter method' do
       allow(letter).to receive(:create_letter).and_return(build(:letter))
       letter.create_letter
       expect(letter).to have_received(:create_letter)
