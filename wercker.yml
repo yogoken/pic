@@ -22,7 +22,12 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
     steps:
         - bundle-install
+        - rails-database-yml:
+            service: mysql
         - script:
-            name: rspec
+            name: Set up db
+            code: RAILS_ENV=test bundle exec rake db:schema:load
+        - script:
+            name: Run RSpec
             code: bundle exec rspec
 
