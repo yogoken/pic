@@ -8,7 +8,7 @@
       - @users.each do |user|
         .container__user-container__cover__individual
           = link_to user_books_path(user), class: "container__user-container__cover__individual__user-info" do
-            = image_tag user.avatar.present? || "default_avatar.jpeg", class: "container__user-container__cover__individual__user-info__image"
+            = image_tag user.avatar.presence || "default_avatar.jpeg", class: "container__user-container__cover__individual__user-info__image"
             .container__user-container__cover__individual__user-info__right-info
               .container__user-container__cover__individual__user-info__right-info__name
-                = user.nickname.present? || "No name"
+                = user.nickname.presence || "No name"
