@@ -49,7 +49,7 @@ RSpec.describe LettersController, type: :controller do
   describe 'GET #show' do
     before { get :show, id: letter }
     it_behaves_like 'valid responses', :show
-    it { expect(assigns(:letter)).to eq letter } 
+    it { expect(assigns(:letter)).to eq letter }
     it { expect(assigns(:comment)).to be_a_new(Comment) }
     it { expect(assigns(:create_storage)).to be_a_new(Storage) }
   end
