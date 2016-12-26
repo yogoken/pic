@@ -19,6 +19,6 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
 
   def likes_by(user)
-    self.likes.find_by(user_id: user.id)
+    likes.find_by(user_id: user.id)
   end
 end

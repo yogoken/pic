@@ -22,7 +22,9 @@ class CommentsController < ApplicationController
   private
 
   def create_params
-    params.require(:comment).permit(:content).merge(user_id: current_user.id, letter_id: params[:letter_id])
+    params.require(:comment)
+      .permit(:content)
+      .merge(user_id: current_user.id, letter_id: params[:letter_id])
   end
 
   def set_letter
