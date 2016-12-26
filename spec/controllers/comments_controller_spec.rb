@@ -5,12 +5,12 @@ RSpec.describe CommentsController, type: :controller do
   let!(:letter) { create(:letter) }
   let!(:comment) { create(:comment) }
   let(:valid_params) {{
-    id: comment.id,
+    id: comment,
     letter_id: letter.id,
     comment: attributes_for(:comment, content: "sample")
   }}
   let(:invalid_params) {{
-    id: comment.id,
+    id: comment,
     letter_id: letter.id,
     comment: attributes_for(:comment, content: nil)
   }}
