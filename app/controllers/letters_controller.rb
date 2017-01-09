@@ -15,10 +15,10 @@ class LettersController < ApplicationController
       letter = Letter.new(url_params)
       if letter.save
         letter.create_letter
-        flash[:notice] = '投稿に成功しました'
+        flash.now[:notice] = '投稿に成功しました'
         redirect_to letter_path(letter)
       else
-        flash[:alert] = '投稿に失敗しました'
+        flash.now[:alert] = '投稿に失敗しました'
         redirect_to root_path
       end
     else
