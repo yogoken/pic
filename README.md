@@ -71,7 +71,6 @@ pass: qwerty
 - 関連
   - `has_many :comments`
 
-
 ### Comments
 
 | column | 説明 | type | default | null | 備考 |
