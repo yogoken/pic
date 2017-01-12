@@ -67,10 +67,8 @@ pass: qwerty
 | `site_name` | サイトの名前 | string | | false | |
 | `comments_count` | コメントの数 | integer | | false | |
 
-
 - 関連
   - `has_many :comments`
-
 
 ### Comments
 
