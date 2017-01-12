@@ -84,7 +84,6 @@ pass: qwerty
   - `belongs_to :letter, counter_cache: true`
   - `has_many :likes, dependent: :destroy`
 
-
 ### Likes
 
 | column | 説明 | type | default | null | 備考 |
