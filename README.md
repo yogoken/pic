@@ -20,8 +20,6 @@ pass: qwerty
 #### 1-5 見本サイト
 - https://newspicks.com/
 
-
-
 ## 2, 見積り工数
 - 期間
 
@@ -34,7 +32,6 @@ pass: qwerty
 | `予備日` |4日|
 
 合計：31日
-※別途AWSサーバー代
 
 ##3, UI設計
 ◯管理画面UI(1枚)
@@ -52,7 +49,6 @@ pass: qwerty
 - 管理画面(3日)
 
 ## テーブル設計
-
 ### Users
 
 |column|説明|type|default|null|備考|
@@ -69,10 +65,8 @@ pass: qwerty
 | `site_name` | サイトの名前 | string | | false | |
 | `comments_count` | コメントの数 | integer | | false | |
 
-
 - 関連
   - `has_many :comments`
-
 
 ### Comments
 
@@ -87,7 +81,6 @@ pass: qwerty
   - `belongs_to :user`
   - `belongs_to :letter, counter_cache: true`
   - `has_many :likes, dependent: :destroy`
-
 
 ### Likes
 
