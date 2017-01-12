@@ -20,8 +20,6 @@ pass: qwerty
 #### 1-5 見本サイト
 - https://newspicks.com/
 
-
-
 ## 2, 見積り工数
 - 期間
 
