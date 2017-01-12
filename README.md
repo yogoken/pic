@@ -50,7 +50,6 @@ pass: qwerty
 - 管理画面(3日)
 
 ## テーブル設計
-
 ### Users
 
 |column|説明|type|default|null|備考|
@@ -67,10 +66,8 @@ pass: qwerty
 | `site_name` | サイトの名前 | string | | false | |
 | `comments_count` | コメントの数 | integer | | false | |
 
-
 - 関連
   - `has_many :comments`
-
 
 ### Comments
 
@@ -96,3 +93,5 @@ pass: qwerty
 - 関連
   - `belongs_to :user`
   - `belongs_to :comment`
+
+-----------------------------------------------------------------------------------------
