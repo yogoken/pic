@@ -19,7 +19,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
 
-  # test
   gem 'autodoc'
   gem 'capybara'
   gem 'capybara-email'
