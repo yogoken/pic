@@ -10,7 +10,6 @@
             Picks
   .container__letter-container__letter-block__individual-letter__title
     %h2
-      - binding.pry
       = link_to letter.title.truncate(28).presence || "No title", letter_path(letter), class: "container__letter-container__letter-block__individual-letter__title__font"
 
   - if letter.nil?
