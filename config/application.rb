@@ -18,6 +18,10 @@ Bundler.require(*Rails.groups)
 
 module Pic
   class Application < Rails::Application
+    # Custom directories with classes and modules you want to be autoloadable.
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
     config.generators do |g|
       g.javascript false
       g.stylesheets false
