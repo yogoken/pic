@@ -33,8 +33,6 @@ describe Letter do
     end
     describe 'when not commented by a user' do
       it 'return nil' do
-        another_user = build(:user)
-        comment = build(:comment, letter: letter, user: another_user)
         expect(letter.comments_by(user)).to eq nil
       end
     end
