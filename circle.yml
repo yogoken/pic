@@ -1,4 +1,7 @@
 test:
+  override:
+    - ./dummy_test_script.sh
+test:
   post:
     #- 'bundle exec "rake factory_girl:lint" 2> ${CIRCLE_ARTIFACTS}/factory_girl.txt || :'
     - bundle exec rubocop --format html -o ${CIRCLE_ARTIFACTS}/rubocop_output.html
