@@ -1,4 +1,4 @@
-= link_to letter_comment_like_path(@letter, comment, comment.user_like(current_user)), controller: :likes, method: :delete, class: "container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link", remote: true do
+= link_to letter_comment_like_path(@letter, comment, comment.likes_by(current_user)), controller: :likes, method: :delete, class: "container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link", remote: true do
   .container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link__likes-count-red
     = comment.likes.length
   .container__contents-container__news-comment__comments__individual__comment__like-container__like-panel__like-link__likes-red
