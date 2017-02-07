@@ -34,6 +34,10 @@ group :development, :test do
   gem 'faker'
   gem 'launchy'
   gem 'rails-controller-testing'
+  gem 'brakeman'
+  gem 'rubocop'
+  gem 'rubocop-rspec'
+  gem 'rubycritic'
 end
 
 group :development do
