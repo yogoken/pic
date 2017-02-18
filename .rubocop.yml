@@ -1,53 +1,10 @@
-# This is the default configuration file. Enabling and disabling is configured
-# in separate files. This file adds all other parameters apart from Enabled.
-require: rubocop-rspec
+inherit_gem:
+  onkcop:
+    - "config/rubocop.yml"
+    # uncomment if use rails cops
+    # - "config/rails.yml"
+    # uncomment if use rspec cops
+    # - "config/rspec.yml"
 
 AllCops:
   TargetRubyVersion: 2.3
-  Include:
-    - '**/*.gemspec'
-    - '**/*.rake'
-    - '**/config.ru'
-    - '**/Gemfile'
-    - '**/Rakefile'
-    - '**/Guardfile'
-  Exclude:
-    - 'bin/**/*'
-    - 'db/**/*'
-    - 'db/*schema.rb'
-    - 'db/seeds.rb'
-    - 'doc/**/*'
-    - 'log/**/*'
-    - 'tmp/**/*'
-    - 'vendor/**/*'
-    - 'workspace/**/*'
-    - 'test/**/*'
-
-  DisplayCopNames: true
-  DisplayStyleGuide: true
-
-Rails:
-  Enabled: true
-
-# The project has a soft limit of 80 chars for line length, but up to 100 chars
-# are allowed in some cases.
-Metrics/LineLength:
-  Max: 100
-  AllowHeredoc: true
-  AllowURI: true
-
-# Methods should be short. But sometimes it is not possible.
-Metrics/MethodLength:
-  Max: 20
-
-# Do not enforce documentation for all class definitions
-Documentation:
-  Enabled: false
-
-# No HttpPositionalArguments in Rails 4.2
-Rails/HttpPositionalArguments:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-

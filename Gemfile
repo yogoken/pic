@@ -49,6 +49,7 @@ group :development do
   gem "binding_of_caller"
   gem 'xray-rails'
   gem 'pry-byebug'
+  gem 'onkcop', require: false
 end
 
 group :production, :staging do
