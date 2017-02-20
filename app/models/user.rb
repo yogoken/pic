@@ -23,7 +23,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :comments, -> { order("updated_at desc") }, dependent: :destroy
-  has_many :likes,                                    dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :books,    -> { order("created_at desc") }
   has_many :storages, -> { order("created_at desc") }
   has_many :impressions
