@@ -6,7 +6,7 @@ describe Letter do
   describe 'associations' do
     describe 'with comments' do
       let(:comments_count) { 1 }
-      let!(:letter) { create(:letter, :with_comments, comments_count: comments_count)}
+      let!(:letter) { create(:letter, :with_comments, comments_count: comments_count) }
       it 'deletes the comments when Letter is deleted' do
         expect { letter.destroy }.to change(Comment, :count).by(-1 * comments_count)
       end
