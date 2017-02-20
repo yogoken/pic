@@ -10,8 +10,7 @@ class UsersController < ApplicationController
     @letters = @user.user_letters
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)

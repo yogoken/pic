@@ -6,8 +6,7 @@ class LettersController < ApplicationController
     @status = 'newest'
   end
 
-  def new
-  end
+  def new; end
 
   def create
     @letters = Letter.order('created_at desc')
