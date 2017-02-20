@@ -10,7 +10,10 @@ class LettersController < ApplicationController
 
   def create
     @letters = Letter.order("created_at desc")
-    unless @letters.pluck(:url).include?(url_params[:url])
+    if @letters.pluck(:url).include?(url_params[:url])
+      @select_letter = Letter.find_by(url: url_params[:url])
+      redirect_to letter_path(@select_letter)
+    else
       letter = Letter.new(url_params)
       if letter.save
         letter.create_letter
@@ -20,9 +23,6 @@ class LettersController < ApplicationController
         flash.now[:alert] = "投稿に失敗しました"
         redirect_to root_path
       end
-    else
-      @select_letter = Letter.find_by(url: url_params[:url])
-      redirect_to letter_path(@select_letter)
     end
   end
 
