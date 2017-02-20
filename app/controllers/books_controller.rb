@@ -36,7 +36,7 @@ class BooksController < ApplicationController
         :url,
         :author,
         :manufacturer
-).
+      ).
         merge(user_id: current_user.id)
     end
 end
