@@ -24,7 +24,7 @@ class StoragesController < ApplicationController
 
   private
 
-  def create_params
-    params.require(:storage).permit(:letter_id).merge(user_id: current_user.id)
-  end
+    def create_params
+      params.require(:storage).permit(:letter_id).merge(user_id: current_user.id)
+    end
 end

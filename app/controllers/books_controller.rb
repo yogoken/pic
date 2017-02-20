@@ -29,14 +29,14 @@ class BooksController < ApplicationController
 
   private
 
-  def create_params
-    params.require(:book).permit(
-      :title,
-      :image,
-      :url,
-      :author,
-      :manufacturer).
-      merge(user_id: current_user.id
-            )
-  end
+    def create_params
+      params.require(:book).permit(
+        :title,
+        :image,
+        :url,
+        :author,
+        :manufacturer).
+        merge(user_id: current_user.id
+              )
+    end
 end

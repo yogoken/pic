@@ -23,8 +23,8 @@ class ImpressionsController < ApplicationController
 
   private
 
-  def create_params
-    book_id = params.require(:book_id)
-    params.require(:impression).permit(:content).merge(user_id: current_user.id, book_id: book_id.to_i)
-  end
+    def create_params
+      book_id = params.require(:book_id)
+      params.require(:impression).permit(:content).merge(user_id: current_user.id, book_id: book_id.to_i)
+    end
 end

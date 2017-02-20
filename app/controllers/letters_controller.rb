@@ -45,7 +45,7 @@ class LettersController < ApplicationController
 
   private
 
-  def url_params
-    params.permit(:url)
-  end
+    def url_params
+      params.permit(:url)
+    end
 end
