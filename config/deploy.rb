@@ -25,7 +25,7 @@ set :keep_releases, 5
 # rubyのバージョン（ruby -vコマンドで確認し、ご自身が使用しているバージョンを指定してください。）
 set :rbenv_ruby, '2.3.1'
 
-#出力するログのレベル。
+# 出力するログのレベル。
 set :log_level, :debug
 #
 # namespace :deploy do
