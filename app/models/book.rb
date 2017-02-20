@@ -45,7 +45,7 @@ class Book < ApplicationRecord
         )
         search_books.push(book)
       end
-      return search_books
+      search_books
     end
   end
 end
