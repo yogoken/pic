@@ -41,7 +41,7 @@ class Book < ApplicationRecord
           image: item.get("LargeImage/URL"),
           url: item.get("DetailPageURL"),
           author: item.get("ItemAttributes/Author"),
-          manufacturer: item.get("ItemAttributes/Manufacturer"),
+          manufacturer: item.get("ItemAttributes/Manufacturer")
         )
         search_books.push(book)
       end
