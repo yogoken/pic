@@ -19,3 +19,21 @@ Metrics/BlockLength:
     - 'spec/models/letter_spec.rb'
     - 'spec/models/user_spec.rb'
     - 'spec/models/user_spec.rb'
+Metrics/LineLength:
+  Exclude:
+    - 'Guardfile'
+    - 'spec/support/controller_macros.rb'
+Metrics/MethodLength:
+  Exclude:
+    - 'app/models/book.rb'
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/admin/reports_controller.rb'
+    - 'app/controllers/admin/users_controller.rb'
+    - 'app/controllers/letters/popular_controller.rb'
+Style/GuardClause:
+  Exclude:
+    - 'app/models/book.rb'
+Style/IdenticalConditionalBranches:
+  Exclude:
+    - 'app/controllers/storages_controller.rb'
