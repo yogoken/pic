@@ -5,12 +5,12 @@ RSpec.describe Admin::UsersController, type: :controller do
   let(:valid_params) {
     {
       id: user.id,
-    user: attributes_for(:user, nickname: "hoge"),
+      user: attributes_for(:user, nickname: "hoge"),
     }}
   let(:invalid_params) {
     {
       id: user.id,
-    user: attributes_for(:user, nickname: nil),
+      user: attributes_for(:user, nickname: nil),
     }}
 
   describe "with user login" do
