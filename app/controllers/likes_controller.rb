@@ -14,6 +14,7 @@ class LikesController < ApplicationController
   end
 
   private
+
     def create_params
       params.permit(:comment_id).merge(user_id: current_user.id)
     end
