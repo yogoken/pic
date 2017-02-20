@@ -8,3 +8,14 @@ inherit_gem:
 
 AllCops:
   TargetRubyVersion: 2.3
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/capistrano/tasks/unicorn.rb'
+    - 'spec/controllers/admin/users_controller_spec.rb'
+    - 'spec/factories/letters.rb'
+    - 'spec/models/letter_spec.rb'
+    - 'spec/models/user_spec.rb'
+    - 'spec/models/user_spec.rb'
