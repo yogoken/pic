@@ -30,4 +30,3 @@ class LikesController < ApplicationController
       @id_num = params[:comment_id]
     end
 end
-
