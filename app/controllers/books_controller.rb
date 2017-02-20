@@ -35,8 +35,8 @@ class BooksController < ApplicationController
         :image,
         :url,
         :author,
-        :manufacturer).
-        merge(user_id: current_user.id
-              )
+        :manufacturer
+).
+        merge(user_id: current_user.id)
     end
 end
