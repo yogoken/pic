@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -24,13 +24,13 @@ module Pic
       g.helper false
       g.template_engine = :haml
       g.test_framework :rspec,
-        fixture: true,
-        view_specs: false,
-        helper_specs: false,
-        routing_specs: false,
-        controller_specs: true,
-        request_specs: false
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+                       fixture: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: true,
+                       request_specs: false
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
   end
 end

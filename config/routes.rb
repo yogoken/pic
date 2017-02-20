@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'letters#index'
+  root "letters#index"
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update] do
     resources :books, only: [:index, :show, :new, :create, :destroy] do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :chat_groups, only: [:index, :new, :edit, :create, :update] do
     resources :messages, only: [:index, :create]
   end
-  get 'admin' => 'admin/reports#index'
+  get "admin" => "admin/reports#index"
   namespace :admin do
     resources :users
   end

@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe User do
-  describe '#create' do
+  describe "#create" do
     describe "with valid attributes" do
       it "is valid with all information" do
         expect(build(:user)).to be_valid

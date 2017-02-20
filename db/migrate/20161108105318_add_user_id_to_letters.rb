@@ -3,4 +3,3 @@ class AddUserIdToLetters < ActiveRecord::Migration[5.0]
     add_reference :letters, :user, index: true
   end
 end
-
