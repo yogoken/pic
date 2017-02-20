@@ -2,22 +2,22 @@ class LettersController < ApplicationController
   before_action :authenticate_user!, only: %i(new create show)
 
   def index
-    @letters = Letter.order('created_at desc').page(params[:page])
-    @status = 'newest'
+    @letters = Letter.order("created_at desc").page(params[:page])
+    @status = "newest"
   end
 
   def new; end
 
   def create
-    @letters = Letter.order('created_at desc')
+    @letters = Letter.order("created_at desc")
     unless @letters.pluck(:url).include?(url_params[:url])
       letter = Letter.new(url_params)
       if letter.save
         letter.create_letter
-        flash.now[:notice] = '投稿に成功しました'
+        flash.now[:notice] = "投稿に成功しました"
         redirect_to letter_path(letter)
       else
-        flash.now[:alert] = '投稿に失敗しました'
+        flash.now[:alert] = "投稿に失敗しました"
         redirect_to root_path
       end
     else
@@ -36,9 +36,9 @@ class LettersController < ApplicationController
 
   def destroy
     if Letter.find(params[:id]).destroy
-      flash.now[:notice] = '記事を削除しました'
+      flash.now[:notice] = "記事を削除しました"
     else
-      flash.now[:alert] = '記事を削除できませんでした'
+      flash.now[:alert] = "記事を削除できませんでした"
     end
     redirect_to root_path
   end

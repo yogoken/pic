@@ -44,7 +44,7 @@ class Letter < ApplicationRecord
   def create_letter
     agent = Mechanize.new
     page = agent.get(self.url)
-    elements = page.search('meta')
+    elements = page.search("meta")
     letter = {}
     elements.each do |ele|
       property = ele.get_attribute(:property)
