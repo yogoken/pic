@@ -6,12 +6,12 @@ class LettersController < ApplicationController
     @status = "newest"
   end
 
-   def new; end
+  def new; end
 
   def create
     @letters = Letter.order("created_at desc")
     if @letters.pluck(:url).include?(url_params[:url])
-       @select_letter = Letter.find_by(url: url_params[:url])
+      @select_letter = Letter.find_by(url: url_params[:url])
       redirect_to letter_path(@select_letter)
     else
       letter = Letter.new(url_params)
@@ -27,7 +27,7 @@ class LettersController < ApplicationController
   end
 
   def show
-     @letter = Letter.find(params[:id])
+    @letter = Letter.find(params[:id])
     @comment =  Comment.new
     @comments = @letter.comments
     @create_storage = Storage.new
