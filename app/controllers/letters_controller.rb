@@ -41,7 +41,7 @@ class LettersController < ApplicationController
       flash.now[:alert] = "記事を削除できませんでした"
     end
     redirect_to root_path
- end
+  end
 
   private
 
