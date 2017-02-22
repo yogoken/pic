@@ -8,13 +8,13 @@ class LettersController < ApplicationController
 
   def new; end
 
-  def create
+  def  create
     @letters = Letter.order("created_at desc")
     if @letters.pluck(:url).include?(url_params[:url])
       @select_letter = Letter.find_by(url: url_params[:url])
       redirect_to letter_path(@select_letter)
     else
-      letter = Letter.new(url_params)
+      letter  = Letter.new(url_params)
       if letter.save
         letter.create_letter
         flash.now[:notice] = "投稿に成功しました"
@@ -34,7 +34,7 @@ class LettersController < ApplicationController
     @delete_storage = Storage.find_by(user_id: current_user.id, letter_id: @letter.id)
   end
 
-  def destroy
+   def destroy
     if Letter.find(params[:id]).destroy
       flash.now[:notice] = "記事を削除しました"
     else
