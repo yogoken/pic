@@ -10,27 +10,26 @@ class UsersController < ApplicationController
     @letters = @user.user_letters
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
-      redirect_to root_path, notice: 'ユーザー情報の編集に成功しました。'
+      redirect_to root_path, notice: "ユーザー情報の編集に成功しました。"
     else
-      redirect_to edit_user_path, alert: 'ユーザー情報の編集に失敗しました。'
+      redirect_to edit_user_path, alert: "ユーザー情報の編集に失敗しました。"
     end
   end
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+    def set_user
+      @user = User.find(params[:id])
+    end
 
-  def user_params
-    params.require(:user).permit(
-      :nickname,
-      :avatar
-    )
-  end
+    def user_params
+      params.require(:user).permit(
+        :nickname,
+        :avatar
+      )
+    end
 end

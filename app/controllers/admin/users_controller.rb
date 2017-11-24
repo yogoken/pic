@@ -1,5 +1,4 @@
 class Admin::UsersController < AdminController
-
   def index
     @users = User.all
   end
@@ -24,15 +23,14 @@ class Admin::UsersController < AdminController
 
   private
 
-  def user_params
-    params.require(:user).permit(
-      :id,
-      :email,
-      :nickname,
-      :avatar,
-      :password,
-      :admin
-    )
-  end
-
+    def user_params
+      params.require(:user).permit(
+        :id,
+        :email,
+        :nickname,
+        :avatar,
+        :password,
+        :admin
+      )
+    end
 end

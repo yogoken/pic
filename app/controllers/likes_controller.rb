@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_letter
   before_action :set_comment
@@ -14,6 +13,7 @@ class LikesController < ApplicationController
   end
 
   private
+
     def create_params
       params.permit(:comment_id).merge(user_id: current_user.id)
     end
@@ -30,4 +30,3 @@ class LikesController < ApplicationController
       @id_num = params[:comment_id]
     end
 end
-
